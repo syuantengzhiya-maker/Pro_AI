@@ -429,6 +429,40 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 .cs .tags{margin:10px 0 0}
 .cs .flag{display:inline-block;font:700 .72rem var(--mono);letter-spacing:.06em;background:var(--sun);border:1.5px solid var(--ink);border-radius:99px;padding:2px 10px;margin-bottom:8px}
 @media(min-width:901px){.pipe .card:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:50%;margin-top:-14px;width:18px;text-align:center;font:800 1.3rem 'Bricolage Grotesque';color:var(--ink);z-index:2}}
+
+/* ===== v22: Education card — 3D orbit, learning path, burst (transform/opacity only, pauses off screen) ===== */
+.edu-card{display:flex;flex-direction:column;gap:6px}
+.capstage{position:relative;height:170px;margin:4px 0 0;perspective:700px;display:grid;place-items:center}
+.glow{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:radial-gradient(circle,#ffc233aa,#ff7eb655 45%,transparent 70%);animation:glowp 2.6s ease-in-out infinite}
+@keyframes glowp{0%,100%{transform:scale(.8);opacity:.7}50%{transform:scale(1.25);opacity:1}}
+.orbit{position:absolute;left:50%;top:52%;width:0;height:0;transform-style:preserve-3d;transform:rotateX(68deg)}
+.spin{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;animation:spinz 9s linear infinite}
+@keyframes spinz{to{transform:rotateZ(360deg)}}
+.spin span{position:absolute;left:-.5em;top:-.5em;font-size:1.9rem;line-height:1;transform-style:preserve-3d;transform:rotateZ(var(--a)) translateX(92px) rotateZ(calc(-1*var(--a))) rotateX(-68deg);animation:unspin 9s linear infinite;will-change:transform}
+@keyframes unspin{to{transform:rotateZ(var(--a)) translateX(92px) rotateZ(calc(-1*var(--a) - 360deg)) rotateX(-68deg)}}
+.cap{position:relative;z-index:2;border:0;background:none;padding:0;font-size:4.2rem;line-height:1;cursor:pointer;animation:capf 3.2s ease-in-out infinite;filter:drop-shadow(0 12px 0 #0d1b3d22);will-change:transform}
+@keyframes capf{0%,100%{transform:translateY(0) rotate(-8deg) scale(1)}50%{transform:translateY(-10px) rotate(8deg) scale(1.12)}}
+.cap.flipc{animation:capspin .95s cubic-bezier(.3,1.2,.4,1),capf 3.2s ease-in-out .95s infinite}
+@keyframes capspin{from{transform:rotateY(0deg) scale(1)}50%{transform:rotateY(540deg) scale(1.5)}to{transform:rotateY(1080deg) scale(1)}}
+.spark{position:absolute;left:50%;top:50%;width:0;height:0;z-index:3;pointer-events:none}
+.spark i{position:absolute;width:10px;height:10px;border-radius:50%;opacity:0}
+.spark.b i{animation:sparkout .95s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes sparkout{0%{transform:translate(-50%,-50%) scale(.5);opacity:1}100%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(0);opacity:0}}
+.path{margin:2px 4px 4px}
+.rail{position:relative;height:10px;border:1.5px solid var(--ink);border-radius:99px;background:#fff}
+.rail i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--pink),var(--sun));transition:width 1.8s cubic-bezier(.2,.9,.3,1.2)}
+.rail b{position:absolute;top:50%;left:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);transition:left 1.8s cubic-bezier(.2,.9,.3,1.2)}
+.rail b::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--hot);animation:ring 1.6s ease-out infinite}
+@keyframes ring{from{transform:scale(.6);opacity:1}to{transform:scale(1.7);opacity:0}}
+.edu-card.go .rail i{width:20%}.edu-card.go .rail b{left:20%}
+.steps{display:flex;justify-content:space-between;gap:6px;margin-top:8px;font:700 .66rem var(--mono);letter-spacing:.05em;color:var(--soft)}
+.steps .on{color:var(--hot)}
+.edu-card .tags span{opacity:0;transform:translateY(10px) scale(.8)}
+.edu-card.go .tags span{animation:tagpop .55s var(--easeSmooth) forwards;animation-delay:calc(var(--i)*90ms + 500ms)}
+@keyframes tagpop{to{opacity:1;transform:none}}
+.edu-card:not(.run) .spin,.edu-card:not(.run) .spin span,.edu-card:not(.run) .cap,.edu-card:not(.run) .glow,.edu-card:not(.run) .rail b::after{animation-play-state:paused}
+html.lite .glow,html.lite .rail b::after{animation:none}
+@media(prefers-reduced-motion:reduce){.spin,.spin span,.cap,.glow,.rail b::after{animation:none}.edu-card .tags span{opacity:1;transform:none;animation:none}.edu-card .rail i{width:20%}.edu-card .rail b{left:20%}}
 </style>
 </head>
 <body>
@@ -504,9 +538,22 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 
 <section id="edu" class="layer" style="--lb:#e3f7f0"><button class="st3" style="right:30%;top:40px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <div class="two" data-fx="fan">
-    <div class="card paper"><h4>Education</h4>
+    <div class="card paper edu-card" id="eduCard"><h4>Education</h4>
       <p><b style="color:var(--ink)">SMK Bandar Kuching No. 1</b>, Kuching, Sarawak<br>Form 4 (current)</p>
-      <p>Outside the classroom I teach myself coding and AI by building real apps, then publishing them for other students to use.</p></div>
+      <div class="capstage">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="orbit" aria-hidden="true"><div class="spin">
+          <span style="--a:0deg">📚</span><span style="--a:72deg">💻</span><span style="--a:144deg">🔬</span><span style="--a:216deg">📐</span><span style="--a:288deg">🧪</span>
+        </div></div>
+        <button class="cap" id="eduCap" type="button" aria-label="Celebrate">🎓</button>
+        <div class="spark" id="spark" aria-hidden="true"></div>
+      </div>
+      <div class="path" aria-label="My learning path">
+        <div class="rail"><i></i><b></b></div>
+        <div class="steps"><span class="on">FORM 4 · NOW</span><span>FORM 5 · SPM</span><span>PRE-U</span><span>SE DEGREE</span></div>
+      </div>
+      <p>Outside the classroom I teach myself coding and AI by building real apps, then publishing them for other students to use.</p>
+      <div class="tags"><span style="--i:0">Python</span><span style="--i:1">Machine learning</span><span style="--i:2">Firebase</span><span style="--i:3">Docker</span><span style="--i:4">Three.js</span><span style="--i:5">Gradio</span></div></div>
     <div class="card" id="skills"><h4>Skills and interests</h4>
       <p style="margin:0">Skills I use</p>
       <div class="ring" data-r="150"><div class="core">⚡</div><div class="orb3"><span class="chip">Vibe coding</span><span class="chip">AI apps</span><span class="chip">Video editing</span><span class="chip">Presenting</span><span class="chip">Photography</span><span class="chip">GDevelop (learning)</span></div></div>
@@ -1191,6 +1238,23 @@ document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(
   if(t-start>3500&&dt>0&&dt<250){n++;if(dt>30)bad++;if(n>=90){if(bad/n>.5)lite(true);n=0;bad=0}}
   requestAnimationFrame(tick)}
  requestAnimationFrame(tick);
+})();
+</script>
+<script>
+/* Education card: starts when it scrolls into view, pauses when it leaves, click the cap for a burst */
+(function(){
+ const c=document.getElementById('eduCard'),sp=document.getElementById('spark'),cap=document.getElementById('eduCap');
+ if(!c||!sp||!cap)return;
+ const COL=['#2547f0','#ff5a36','#ffc233','#12c9a0','#ff7eb6'];
+ for(let i=0;i<20;i++){const e=document.createElement('i');const a=i/20*Math.PI*2,d=80+Math.random()*60;
+  e.style.setProperty('--x',(Math.cos(a)*d).toFixed(1)+'px');e.style.setProperty('--y',(Math.sin(a)*d*.8).toFixed(1)+'px');e.style.background=COL[i%5];sp.appendChild(e)}
+ function boom(){sp.classList.remove('b');void sp.offsetWidth;sp.classList.add('b')}
+ cap.addEventListener('click',()=>{boom();cap.classList.remove('flipc');void cap.offsetWidth;cap.classList.add('flipc')});
+ if(!('IntersectionObserver' in window)){c.classList.add('go','run');boom();return}
+ new IntersectionObserver(es=>es.forEach(e=>{
+  c.classList.toggle('run',e.isIntersecting);
+  if(e.isIntersecting&&!c.classList.contains('go')){setTimeout(()=>{c.classList.add('go');boom()},350)}
+ }),{threshold:.35}).observe(c);
 })();
 </script>
 </body>
