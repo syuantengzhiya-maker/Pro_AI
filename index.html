@@ -387,6 +387,14 @@ html,body{overflow-x:clip}
 .fl input{padding:6px 10px;font-size:.95rem}
 .ach h3{font-size:1.25rem}
 .big{padding:44px 34px;min-height:300px}
+
+/* ===== v18: Activities = 2 stable columns, posts load only when near the screen ===== */
+.moments{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:22px;justify-items:stretch}
+@media(max-width:1000px){.moments{grid-template-columns:minmax(0,1fr)}}
+.mcard.fb{position:relative;max-width:none;width:100%}
+.mcard.fb::after{content:"Loading post…";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-weight:600}
+.mcard.fb iframe{position:relative;z-index:1}
+.big.off .bw{animation-play-state:paused}
 </style>
 </head>
 <body>
@@ -527,15 +535,15 @@ html,body{overflow-x:clip}
   <h2>Activities &amp; service</h2>
   <p class="lead">Volunteering, leadership and events outside the classroom.</p>
   <div class="moments">
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
 </div>
 </div></section>
 
@@ -1063,6 +1071,16 @@ document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(
   // arrive at the section already settled (no sweeping-in animation after a jump)
   window.snapFx=1;window.scrollTo({top:y,behavior:'instant'});setTimeout(()=>window.snapFx=0,400);history.replaceState(null,'','#'+t.id);
 }));
+</script>
+<script>
+/* Facebook posts load only when they are close to the screen; heavy 3D text pauses when off screen */
+(function(){
+ const f=[...document.querySelectorAll('iframe[data-src]')];
+ const load=i=>{if(i.dataset.src){i.src=i.dataset.src;i.removeAttribute('data-src')}};
+ if(!('IntersectionObserver' in window)){f.forEach(load)}
+ else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){load(e.target);io.unobserve(e.target)}}),{rootMargin:'500px 0px'});f.forEach(i=>io.observe(i));
+  const big=document.querySelector('.big');if(big)new IntersectionObserver(es=>big.classList.toggle('off',!es[0].isIntersecting)).observe(big)}
+})();
 </script>
 </body>
 </html>
