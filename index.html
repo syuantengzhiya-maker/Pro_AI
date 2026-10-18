@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Syuan — I build things you can break and understand</title>
-<meta name="description" content="Syuan (Swen) — student builder from Kuching. AI for education, physics simulators, games.">
+<title>Syuan Teng Zhi Ya — Student Developer & AI Builder</title>
+<meta name="description" content="Meet Syuan Teng Zhi Ya, a student developer from Kuching building AI tools for education, interactive physics simulators and games. Explore projects, achievements and responsible AI practice.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Syuan — I build things you can break and understand">
-<meta property="og:description" content="Student builder from Kuching. AI for education, physics simulators and games. Try a real ML model live.">
+<meta property="og:title" content="Syuan Teng Zhi Ya — I build things you can break and understand">
+<meta property="og:description" content="Student developer from Kuching building AI tools for education, interactive physics simulators and games. Explore real projects and try a live ML demo.">
 <meta property="og:image" content="https://pro-ai-33j2.onrender.com/photos/avatar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#fff7ec">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +111,7 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:700px){.nums{grid-template-columns:1fr}}
 
 /* ============ STORY: tunnel fly-through ============ */
-.story{height:800vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
+.story{height:460vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
 .pin{position:sticky;top:0;height:100vh;overflow:hidden}
 .pin h2{position:absolute;top:8vh;left:0;right:0;text-align:center;font-size:clamp(1.5rem,3.4vw,2.5rem);z-index:3;padding:0 20px;margin:0}
 .stage{position:absolute;inset:0;perspective:1100px}
@@ -204,7 +205,7 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:800px){.pj.star{grid-template-columns:1fr}.stk{min-height:220px}}
 
 /* ============ JOURNEY: rolodex drum ============ */
-.jour{height:1300vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
+.jour{height:900vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
 .drum{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(-440px)}
 .jc{position:absolute;left:50%;top:52%;width:min(640px,86vw);padding:30px 36px;border-radius:20px;border:2px solid #8fa8ff;background:linear-gradient(145deg,#1b2a78,#0f1850);box-shadow:0 0 22px #2547f066;backface-visibility:hidden;will-change:transform,opacity;pointer-events:none;transition:border-color .3s var(--easeFast)}
 .jc.win{border-color:var(--sun);box-shadow:0 0 26px #ffc23366}
@@ -463,6 +464,182 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 .edu-card:not(.run) .spin,.edu-card:not(.run) .spin span,.edu-card:not(.run) .cap,.edu-card:not(.run) .glow,.edu-card:not(.run) .rail b::after{animation-play-state:paused}
 html.lite .glow,html.lite .rail b::after{animation:none}
 @media(prefers-reduced-motion:reduce){.spin,.spin span,.cap,.glow,.rail b::after{animation:none}.edu-card .tags span{opacity:1;transform:none;animation:none}.edu-card .rail i{width:20%}.edu-card .rail b{left:20%}}
+
+
+/* ===== National-challenge refinement layer: hierarchy, readability, and robust responsive behaviour ===== */
+:root{--paper:#fff8ef;--ink:#101a38;--soft:#56617c;--blue:#304cf4;--hot:#f65337;--mint:#0bbf9a;--violet:#7757ef;--r:20px;--focus-ring:#2448ff}
+html{scroll-padding-top:78px;scrollbar-gutter:stable}
+body{font-size:clamp(.97rem,1vw + .62rem,1.05rem);line-height:1.68}
+body::before{background:radial-gradient(circle at 8% 7%,#ffd98caa,transparent 34%),radial-gradient(circle at 94% 24%,#ffc2dc88,transparent 36%),radial-gradient(circle at 16% 82%,#b8f0e266,transparent 36%),linear-gradient(#2547f00b 1px,transparent 1px) 0 0/36px 36px,linear-gradient(90deg,#2547f00b 1px,transparent 1px) 0 0/36px 36px,var(--paper)}
+.wrap{max-width:1120px}
+nav{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:#fff8eff0;border-bottom-color:#101a3826}
+nav .wrap{min-height:64px;height:auto;gap:16px}
+.brand{font-size:1.45rem;letter-spacing:-.04em}
+.links{gap:clamp(10px,1.5vw,20px)}
+.links a{font-weight:600;transition:color .2s ease}
+.kbd{border-radius:12px;box-shadow:3px 3px 0 var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.kbd:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.hero{min-height:min(880px,calc(100svh - 64px));min-height:min(880px,calc(100vh - 64px));padding:clamp(70px,9vw,120px) 0 84px;background:linear-gradient(110deg,#fff8efee 0%,#fff8efc7 48%,#fff8ef30 100%)}
+.hero .wrap{max-width:1120px;padding-top:24px;padding-bottom:24px}
+.eyebrow,.section-kicker{display:flex;align-items:center;gap:10px;font:700 .72rem var(--mono);letter-spacing:.11em;color:var(--soft);margin:0 0 18px;text-transform:uppercase}
+.eyebrow-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px #0bbf9a20}
+.hero h1{max-width:12.5ch;font-size:clamp(3rem,7.7vw,6.7rem);line-height:.98;letter-spacing:-.065em;text-wrap:balance}
+.hero h1 em{background:linear-gradient(transparent 68%,#ffc233a8 68%);color:var(--blue)}
+.role{margin-top:24px;font-size:clamp(1.15rem,2.2vw,1.6rem)}
+.sub{max-width:57ch;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.75}
+.cta{gap:14px}
+.btn{border-radius:14px;padding:13px 19px;box-shadow:0 2px 0 #101a3810}
+.btn.p{background:var(--blue);box-shadow:4px 4px 0 var(--ink)}
+.btn.p:hover{box-shadow:7px 7px 0 var(--ink)}
+.fc{backdrop-filter:blur(10px);box-shadow:7px 8px 0 #101a3818;border-radius:18px}
+.fc1{box-shadow:8px 9px 0 #f6533738}.fc2{box-shadow:8px 9px 0 #304cf438}.fc3{box-shadow:8px 9px 0 #ffc23377}
+.cubeWrap{filter:drop-shadow(0 22px 25px #101a3820)}
+.tkx{height:104px}
+section{padding:clamp(54px,7vw,88px) 0}
+.layer{padding-top:clamp(66px,7vw,88px)!important;border-radius:26px 26px 0 0;box-shadow:0 -8px 30px #101a3818;background-image:linear-gradient(#2547f009 1px,transparent 1px),linear-gradient(90deg,#2547f009 1px,transparent 1px);background-size:36px 36px}
+section[id],header[id]{scroll-margin-top:78px}
+h2{font-size:clamp(2rem,4.4vw,3.35rem);letter-spacing:-.055em;line-height:1.02;margin-bottom:14px;text-wrap:balance}
+.lead{font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.72;max-width:65ch;margin-bottom:32px}
+.section-kicker{margin-top:0;margin-bottom:24px}
+.card{border-color:#101a3827;border-radius:22px;box-shadow:0 12px 30px #101a3808}
+.card:not(.pj){transition:transform .32s var(--easeOut),box-shadow .32s ease,border-color .32s ease}
+.two .card{padding:clamp(20px,3vw,30px)}
+.two h4,.cs h4{letter-spacing:-.025em}
+.nums{gap:clamp(14px,2vw,22px)}
+.num{padding:clamp(20px,2.7vw,30px);border-color:#101a3829;border-radius:20px;box-shadow:4px 5px 0 var(--c),0 15px 30px #101a3809}
+.num b{font-size:clamp(2.8rem,5vw,4rem);letter-spacing:-.07em}
+.num span{display:block;max-width:25ch;line-height:1.45}
+.tour{border:1px solid #101a3820;border-radius:16px;padding:12px 14px;background:#ffffffb8;box-shadow:0 8px 22px #101a3806}
+.tour span{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;color:var(--blue)}
+.tour a{padding:4px 7px;border-radius:8px;text-decoration:none;font-weight:600}
+.tour a:hover{background:#304cf412;color:var(--blue)}
+.tags{gap:7px}
+.tags span{border:1px solid #304cf41b;border-radius:8px;padding:4px 9px;font-size:.74rem;line-height:1.4}
+.about{gap:clamp(24px,4vw,48px)}
+.about .lead{font-size:clamp(1.02rem,1.35vw,1.2rem);line-height:1.8}
+.facts{gap:10px}
+.facts span{box-shadow:3px 3px 0 #101a3820}
+#demo .console{border-radius:24px;box-shadow:0 18px 45px #03091d45;border-color:#7b93ff;padding:clamp(18px,3vw,34px)}
+#demo .holo{border-radius:18px;box-shadow:9px 10px 0 #f653374f,0 18px 30px #0004}
+.fl input{min-height:44px;border-radius:11px}
+#go{min-height:46px}
+#projects .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:clamp(14px,2vw,22px)}
+.pj{border:1px solid #101a3826;border-top:6px solid var(--c);border-radius:20px;padding:clamp(20px,2.4vw,26px);box-shadow:0 12px 26px #101a3808;min-width:0}
+.pj:hover{box-shadow:7px 8px 0 var(--c),0 18px 35px #101a380b}
+.pj:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.pj .ic{border-radius:17px}
+.pj h3{font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.1}
+.pj p{font-size:.95rem;line-height:1.65}
+.pj a.go{border-bottom-width:2px;padding:5px 0;text-underline-offset:4px}
+.pj a.go:hover{color:var(--blue);border-bottom-width:4px}
+.pj.star{border:1px solid #ffffff2b;border-top:6px solid var(--sun);background:linear-gradient(135deg,#121d43,#202c67 70%,#37266e);box-shadow:0 18px 38px #101a3824}
+.pipe{gap:18px}
+.pipe .card{border-radius:18px;box-shadow:0 10px 24px #101a3808}
+.pipe p{line-height:1.65}
+.cs.two .card{padding:clamp(18px,2.5vw,26px)}
+.cs li{line-height:1.6}
+.jour{height:900vh}
+.jc{border-radius:22px;box-shadow:0 18px 45px #070b2a55;padding:clamp(22px,4vw,36px)}
+.jc h3{letter-spacing:-.04em}
+.jlink{display:inline-block;margin-top:14px;color:#fff;background:#ffffff14;border:1px solid #ffffff35;border-radius:10px;padding:7px 11px;font-weight:600;text-decoration:none}
+.jlink:hover{background:#ffffff26}
+#activities .moments{gap:18px}
+.mcard{border-radius:18px;box-shadow:0 10px 24px #101a380c}
+.mcard.fb{min-width:0}
+.mcard.fb iframe{max-width:100%;border-radius:12px}
+.road div{background:#ffffff17;border-color:#ffffff36;border-radius:16px}
+.sheet{box-shadow:0 12px 30px #101a380b}
+.sheet p,.sheet li{font-size:.95rem}
+#ai .sheet h4{font-size:1.75rem!important;line-height:1.05}
+#find .flip{height:230px}
+.ff{border-radius:20px}
+footer{border-top-color:#101a3820;background:#fffdf9}
+footer .wrap{gap:18px}
+.soc a{border-radius:11px}
+#hunt{left:max(14px,env(safe-area-inset-left));bottom:max(14px,env(safe-area-inset-bottom));padding:9px 14px;box-shadow:3px 3px 0 var(--ink)}
+#toast{bottom:max(24px,env(safe-area-inset-bottom));border-radius:14px;line-height:1.45}
+#pal{padding-top:max(10vh,80px);backdrop-filter:blur(6px)}
+#pal div.box{border-radius:20px;box-shadow:0 25px 70px #050b2244}
+#q{min-height:54px}
+#res li{min-height:44px;align-items:center}
+.skip:focus{left:12px;top:12px}
+@media(max-width:800px){
+ .hero{min-height:760px;min-height:min(820px,calc(100svh - 58px));padding-top:64px;padding-bottom:88px}
+ .hero .wrap{padding-inline:22px}
+ .hero h1{max-width:10.5ch;font-size:clamp(3rem,11vw,5.1rem)}
+ .hero .sub{max-width:47ch;padding-right:4px}
+ .cubeWrap{opacity:.82;right:7%;bottom:56px}
+ .hint{left:18px;right:auto;max-width:calc(100% - 36px);font-size:.75rem}
+ .nums{grid-template-columns:1fr;gap:14px}
+ .num{display:grid;grid-template-columns:minmax(76px,.35fr) 1fr;align-items:center;gap:16px;padding:18px 22px}
+ .num b{font-size:2.9rem}
+ .num span{max-width:none}
+ .tour{gap:7px}
+ .pipe{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .pipe .card{min-width:0}
+ .layer{border-radius:20px 20px 0 0}
+}
+@media(max-width:560px){
+ .wrap{padding-inline:18px}
+ nav .wrap{padding-inline:16px;min-height:58px}
+ .brand{font-size:1.25rem}
+ .links{gap:8px}
+ .kbd{padding:6px 10px}
+ .hero{min-height:700px;min-height:min(790px,calc(100svh - 58px));align-items:flex-start;padding-top:64px}
+ .hero h1{font-size:clamp(2.8rem,13vw,4.2rem)}
+ .eyebrow{font-size:.63rem;letter-spacing:.08em}
+ .role{font-size:1.1rem;margin-top:20px}
+ .cta{display:grid;grid-template-columns:1fr;max-width:280px}
+ .btn{text-align:center}
+ .cubeWrap{width:86px;height:86px;right:7%;bottom:58px}
+ .cface{border-radius:10px}
+ .cface span{font-size:1.65rem}
+ .cface small{font-size:.53rem}
+ .tkx{height:84px}
+ .tour{padding:10px;gap:5px}
+ .tour span{width:100%}
+ .tour a{font-size:.78rem}
+ .pipe{grid-template-columns:1fr}
+ .console{padding:16px!important}
+ .fl{grid-template-columns:1fr;gap:5px}
+ .fl input{margin-bottom:8px}
+ .pj.star{display:flex}
+ .stk{min-height:180px;transform:scale(.88);transform-origin:left top}
+ .big{padding:30px 22px;min-height:0}
+ .big h3{font-size:clamp(1.8rem,9vw,3rem)}
+ .road{grid-template-columns:1fr}
+ #find .flip{height:210px}
+ footer .wrap{align-items:flex-start}
+ .soc{flex-wrap:wrap}
+}
+@media(hover:none){.card:not(.pj){transform:none!important}.pj:hover{box-shadow:0 12px 26px #101a3808}.st3{opacity:.58;filter:none}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .story,.jour{height:auto!important;padding:60px 0!important}.pin{position:static!important;height:auto!important;overflow:visible!important}.pin h2{position:static!important;margin-bottom:20px}.stage{position:static!important;display:grid!important;gap:16px;padding:0 24px}.sl3,.jc{position:static!important;transform:none!important;opacity:1!important;width:auto!important}.drum{position:static!important;transform:none!important;display:grid!important;gap:14px;padding:0 24px}
+ .tk,.bw,.holo::after,.role u,.st3,.spin,.spin span,.cap,.glow,.rail b::after{animation:none!important}
+ .layer,.story,.jour,.card,.pj,.cubeWrap,.cube{transform:none!important;filter:none!important}
+ .w{opacity:1!important;transform:none!important}
+ .st3{opacity:.65}
+}
+
+
+/* ===== Pro AI Challenge edition: clear, judge-friendly rubric navigation ===== */
+.judge-panel{position:relative;isolation:isolate;overflow:hidden;margin:0 0 clamp(30px,5vw,64px);padding:clamp(18px,3vw,30px);border:1px solid rgba(31,41,55,.15);border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.93),rgba(255,248,232,.9));box-shadow:0 18px 55px rgba(34,27,48,.08)}
+.judge-panel:before{content:"";position:absolute;z-index:-1;right:-65px;top:-95px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(255,178,48,.24),rgba(255,178,48,0) 70%)}
+.judge-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:20px}
+.judge-eyebrow{display:block;margin-bottom:8px;color:#946000;font-size:.72rem;font-weight:850;letter-spacing:.18em}
+.judge-heading h3{margin:0;color:#20243a;font-size:clamp(1.25rem,2.6vw,2rem);line-height:1.12;letter-spacing:-.035em}
+.judge-mark{flex-shrink:0;padding:8px 11px;border:1px solid rgba(148,96,0,.22);border-radius:999px;color:#795000;font-size:.68rem;font-weight:850;letter-spacing:.08em;white-space:nowrap}
+.judge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.judge-grid a{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0;padding:15px 15px 13px;border:1px solid rgba(31,41,55,.10);border-radius:15px;background:rgba(255,255,255,.78);color:#20243a;text-decoration:none;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.judge-grid a:hover,.judge-grid a:focus-visible{transform:translateY(-3px);border-color:rgba(232,153,15,.65);background:#fff;box-shadow:0 10px 24px rgba(34,27,48,.08);outline:none}
+.judge-grid a>span{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#fff0ce;color:#865700;font-size:.72rem;font-weight:900}
+.judge-grid b{font-size:.92rem;line-height:1.25}
+.judge-grid i{color:#77788a;font-size:.78rem;font-style:normal}
+@media(max-width:760px){.judge-heading{align-items:flex-start;flex-direction:column}.judge-mark{white-space:normal}.judge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.judge-grid a{padding:13px}}
+@media(max-width:430px){.judge-grid{grid-template-columns:1fr}.judge-grid a{display:grid;grid-template-columns:30px 1fr;align-items:center;column-gap:10px}.judge-grid a>span{grid-row:span 2}.judge-grid i{grid-column:2}}
+@media(prefers-reduced-motion:reduce){.judge-grid a{transition:none}.judge-grid a:hover,.judge-grid a:focus-visible{transform:none}}
+
 </style>
 </head>
 <body>
@@ -471,7 +648,7 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 <div id="bgs" aria-hidden="true"><i class="bs r1"></i><i class="bs r2"></i><i class="bs sq1"></i><i class="bs sq2"></i><i class="bs tri"></i><i class="bs dot1"></i><i class="bs dot2"></i></div>
 <nav><div class="wrap">
   <a class="brand" href="#top">Syuan<i>.</i></a>
-  <div class="links"><a href="#about">About</a><a href="#demo">Try it</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#ambition">Future</a><a href="#ai">AI</a>
+  <div class="links"><a href="#about">About</a><a href="#edu">Education</a><a href="#demo">Live demo</a><a href="#projects">Projects</a><a href="#journey">Achievements</a><a href="#ambition">Future</a><a href="#ai">AI practice</a>
   <button class="kbd" id="fxt" aria-pressed="true" title="Toggle sparkles" type="button">✨</button><button class="kbd" id="open" aria-label="Open search">Search  /</button></div>
 </div></nav>
 
@@ -483,10 +660,11 @@ html.lite .glow,html.lite .rail b::after{animation:none}
   <div class="fc fc3" data-d="25"><b>Top 6</b>GirlsCode 2026</div>
   <div class="cubeWrap" data-d="30" aria-hidden="true"><span class="cnote">drag me! click a face!</span><div class="cube" id="cube"></div><div class="cshadow"></div></div>
   <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> STUDENT DEVELOPER · KUCHING, MALAYSIA</p>
     <h1>I build things you can <em>break</em> and understand.</h1>
     <div class="role">I'm Syuan, a <b id="typed"></b><u></u></div>
-    <p class="sub">Student builder from Kuching, Sarawak. I make AI tools that help Malaysian students study smarter, and simulators where you can drag a lens, bend a wave, or collapse a bridge.</p>
-    <div class="cta"><a class="btn p" href="#projects">See my projects</a><a class="btn" href="#demo">Try a live demo</a></div>
+    <p class="sub">I build tools that make ideas easier to explore: AI-powered study support for Malaysian students, and interactive simulations where you can trace a ray, bend a wave or test a bridge.</p>
+    <div class="cta"><a class="btn p" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="btn" href="#demo">Try the live model <span aria-hidden="true">↓</span></a></div>
   </div>
   <div class="hint">👆 Move over the waves, then click to drop a ripple!</div><button class="st3" style="right:9%;bottom:22%" aria-label="Hidden star" type="button">⭐</button>
 </header>
@@ -494,10 +672,23 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 <div class="tkx" aria-hidden="true"><div class="ticker a" data-rot="-2.2"><div class="tk" id="tk"></div></div><div class="ticker b" data-rot="1.8"><div class="tk rev" id="tk2"></div></div></div>
 
 <section class="layer" style="--lb:#fff7ec"><div class="wrap">
-  <div class="tour" aria-label="Quick tour for judges"><span>⏱ 60-SECOND TOUR</span><a href="#about">Intro</a><a href="#edu">Education</a><a href="#edu">Skills</a><a href="#journey">Achievements</a><a href="#projects">Portfolio</a><a href="#casestudy">Case study</a><a href="#ambition">Future ambition</a><a href="#ai">Responsible AI</a><a href="#ai">AI tools</a><a href="#ai">Reflection</a></div>
+  <div class="judge-panel" aria-label="Judge quick navigation">
+    <div class="judge-heading"><div><span class="judge-eyebrow">PRO AI CHALLENGE · QUICK NAVIGATION</span><h3>Everything you need to know about me.</h3></div><span class="judge-mark">9 CRITERIA · 1 PROFILE</span></div>
+    <div class="judge-grid">
+      <a href="#about"><span>01</span><b>Student introduction</b><i>Meet Syuan ↗</i></a>
+      <a href="#edu"><span>02</span><b>Education background</b><i>My learning path ↗</i></a>
+      <a href="#edu"><span>03</span><b>Skills & interests</b><i>What I practise ↗</i></a>
+      <a href="#journey"><span>04</span><b>Activities & achievements</b><i>Evidence and roles ↗</i></a>
+      <a href="#ambition"><span>05</span><b>Future ambition</b><i>Where I'm heading ↗</i></a>
+      <a href="#projects"><span>06</span><b>Project portfolio</b><i>Things I've built ↗</i></a>
+      <a href="#ai"><span>07</span><b>Responsible AI</b><i>My principles ↗</i></a>
+      <a href="#ai"><span>08</span><b>AI tools used</b><i>My toolchain ↗</i></a>
+      <a href="#ai"><span>09</span><b>AI reflection</b><i>What I learned ↗</i></a>
+    </div>
+  </div>
   <div class="nums" data-fx="rise">
-    <div class="card num"><b data-n="15">0</b><span>Spaces on Hugging Face, plus a published ML model</span></div>
-    <div class="card num"><b data-n="4">0</b><span>competition finals reached, from state to global</span></div>
+    <div class="card num"><b data-n="15">0</b><span>published Hugging Face Spaces, plus a machine-learning model</span></div>
+    <div class="card num"><b data-n="4">0</b><span>competition finals and semifinal stages, from state to global</span></div>
     <div class="card num"><b data-n="3">0</b><span>club roles: Interact, Red Crescent, Basketball</span></div>
   </div>
 </div></section>
@@ -520,6 +711,7 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 
 <section id="about" class="layer" style="--lb:#ffeaf2"><button class="st3" style="left:46%;top:44px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>About me</h2>
+  <p class="section-kicker">CURIOUS BY DEFAULT · BUILDER BY PRACTICE</p>
   <div class="about" data-fx="door">
     <div>
       <p class="lead" style="max-width:none">Syuan Teng Zhi Ya, pronounced "Swen" <span class="hand">(yes, like that!)</span>. Form 4 at SMK Bandar Kuching No. 1. I like making <mark>things other people can actually play with</mark>: a physics simulator you can drag, a game you can lose at, a bridge you can accidentally collapse. I care about explaining things clearly, which is why "teacher who codes" keeps showing up on my list of dream jobs.</p>
@@ -564,7 +756,7 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 
 <section id="demo" class="dark layer"><button class="st3" style="left:6%;bottom:24px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>Try the real Stream Predictor</h2>
-  <p class="lead">This calls the same trained model that powers AuraStudy. Enter 8 Form 3 scores (0 to 100) and see the recommended stream.</p>
+  <p class="lead">Try the deployed model behind AuraStudy. Enter eight Form 3 marks from 0–100 to see its suggested stream and outputs. This is a learning tool, not a stream-placement decision. Discuss options with teachers and family.</p>
   <div data-fx="zoom">
   <div class="console" id="cons">
     <div class="keys">
@@ -587,20 +779,20 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 </div></section>
 
 <section id="projects" class="layer" style="--lb:#fff1cf"><button class="st3" style="right:5%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
-  <h2>Projects</h2>
-  <p class="lead">Everything here is live. Click a card to open it on Hugging Face.</p>
+  <h2>Selected projects</h2>
+  <p class="lead">A growing portfolio across AI for education, interactive science and games. Open a project to explore the live build; the case study below explains the thinking behind my main education project.</p>
   <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
   <div class="grid" id="grid" data-fx="spiral"></div>
 </div></section>
 
 <section id="casestudy" class="layer" style="--lb:#e6f4ff"><div class="wrap">
-  <h2>AuraStudy case study</h2>
-  <p class="lead">A Form 3 student picks an SPM stream (Science, Semi Science or Art) using data from our school, then gets a weekly study plan that adjusts to how they feel about each subject. Here is how the whole app works, in one picture: a restaurant.</p>
+  <h2>AuraStudy · behind the build</h2>
+  <p class="lead">AuraStudy connects two decisions students often face separately: exploring an SPM stream and building a study routine. This case study shows the user problem, system architecture, model evaluation, safeguards and the next steps I would validate.</p>
   <div class="pipe" data-fx="flow">
-    <div class="card"><small>1 · FRONTEND</small><b>The menu and the counter</b><p>What the student sees and taps. 18 pages in HTML, CSS and JavaScript: sign up, survey, dashboard, stream predictor, timer, reflection, streak, career mapper, dragon shop and Budd.</p></div>
-    <div class="card"><small>2 · API</small><b>The waiter</b><p>Carries each order as a small JSON message, for example the 8 marks sent to /predict. A bad order, like a mark of 150, is rejected with error 422 instead of crashing the app.</p></div>
-    <div class="card"><small>3 · BACKEND AND MODEL</small><b>The kitchen</b><p>Rules, a trained Ridge model saved as one .pkl file, and Firebase for accounts and study records. Four backends, one for each job.</p></div>
-    <div class="card"><small>4 · HUGGING FACE</small><b>The street address</b><p>Five Spaces (one frontend, four backends), each with a public address anyone can open and test.</p></div>
+    <div class="card"><small>01 · FRONTEND</small><b>Student experience</b><p>What the student sees and taps. 18 pages in HTML, CSS and JavaScript: sign up, survey, dashboard, stream predictor, timer, reflection, streak, career mapper, dragon shop and Budd.</p></div>
+    <div class="card"><small>02 · API</small><b>Request and validation</b><p>Carries each order as a small JSON message, for example the 8 marks sent to /predict. A bad order, like a mark of 150, is rejected with error 422 instead of crashing the app.</p></div>
+    <div class="card"><small>03 · BACKEND &amp; MODEL</small><b>Prediction and data</b><p>Rules, a trained Ridge model saved as one .pkl file, and Firebase for accounts and study records. Four backends, one for each job.</p></div>
+    <div class="card"><small>04 · DEPLOYMENT</small><b>Public app services</b><p>Five Spaces (one frontend, four backends), each with a public address anyone can open and test.</p></div>
   </div>
   <div class="two cs" data-fx="deal">
     <div class="card"><h4>The problem</h4>
@@ -626,7 +818,7 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 <section id="journey" class="story jour" aria-label="Journey">
   <div class="pin">
     <div class="floor" aria-hidden="true"><i></i></div>
-    <h2>Journey</h2>
+    <h2>Achievements &amp; leadership</h2>
     <div class="stage"><div class="drum">
       <div class="jc win"><b>2026 · NATIONAL</b><h3>Finalist (Top 6)</h3><p>GirlsCode Challenge</p> <a class="jlink" href="https://www.facebook.com/share/p/1HCubgcgbX/" target="_blank" rel="noopener">Watch the finalist video ↗</a></div>
       <div class="jc win"><b>2026 · NATIONAL</b><h3>Finalist</h3><p>National AI Challenge</p></div>
@@ -644,17 +836,17 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 
 <section id="activities" class="layer" style="--lb:#e3f7f0"><div class="wrap">
   <h2>Activities &amp; service</h2>
-  <p class="lead">Volunteering, leadership and events outside the classroom.</p>
+  <p class="lead">Selected school activities and service roles, with links to public posts where available.</p>
   <div class="moments">
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe title="Public Facebook post documenting a school activity or achievement" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
 </div>
 </div></section>
 
@@ -679,18 +871,19 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 </div></section>
 
 <section id="ai" class="layer" style="--lb:#f1ecff"><div class="wrap">
-  <h2>AI and reflection</h2>
-  <p class="lead">How I used AI to build this site and my projects.</p>
+  <h2>Responsible AI &amp; reflection</h2>
+  <p class="lead">The tools matter less than the decisions, verification and responsibility behind the result.</p>
   <div class="two" data-fx="slide">
     <div class="card sheet" data-tilt="4,5,1.01"><h4>Responsible AI statement</h4><p>AI should serve people, not the other way around. I use it as a partner that carries out my ideas, never as a replacement for my own thinking. What to build, who it is for, and how it should work are my decisions. Claude helps me write code faster, find bugs and polish my writing. I read and test what it produces before I use it, and I say openly where I used it.</p>
-      <ul class="rai"><li><b>Privacy.</b> The predictor does not store your scores, and this site shares no address, IC, phone number or family details.</li><li><b>Honest limits.</b> My model learned from only 91 to 211 students per stream, so I show its accuracy and call the result a suggestion.</li><li><b>Checking.</b> I test every piece of code and every number AI gives me before I publish it.</li><li><b>Credit.</b> I name every AI tool I used: Claude, Gemini, and Groq inside AuraStudy. The ideas, choices and decisions are mine.</li></ul></div>
+      <ul class="rai"><li><b>Privacy.</b> The predictor does not store your scores, and this site shares no address, IC, phone number or family details.</li><li><b>Honest limits.</b> My model learned from only 91 to 211 students per stream, so I show its accuracy and call the result a suggestion.</li><li><b>Checking.</b> I test every piece of code and every number AI gives me before I publish it.</li><li><b>Credit.</b> I disclose the tools I used: Claude, Gemini and ChatGPT for development support, plus Groq inside AuraStudy. The project direction and final decisions remain mine.</li></ul></div>
     <div class="card sheet" data-tilt="4,5,1.01"><h4>AI tools I used</h4>
       <ul><li><b>Claude (Anthropic):</b> helped me write and debug the code for my apps and this website, and polish my English.</li>
       <li><b>Gemini (Google):</b> helped me write and fix the Python code in Google Colab where I trained the stream model.</li>
+      <li><b>ChatGPT (OpenAI):</b> assisted with reviewing and refining this portfolio’s structure, wording, responsive styling and accessibility. I still need to test the final site and verify every claim and link.</li>
       <li><b>Groq (inside AuraStudy):</b> this one is part of the product, not my helper. It writes the one-sentence explanation, the career path text, the study feedback and the Budd tutor replies, and it checks quotes before they are shown. It never chooses the stream.</li></ul>
-      <h4 style="margin-top:16px">Reflection</h4><p class="tldr"><b>In one line:</b> AI is my builder's tool. The idea, the decisions and the checking stay with me.</p><p>Claude helped me a lot, but the most important part was still my own idea. AI cannot replace the human brain. We should use AI well instead of being controlled by it: think of the idea ourselves, then let AI help us carry it out, rather than letting it think and do everything for us.</p>
-      <p>For this website, I decided what to show about myself, which projects mattered, and how it should feel. Claude turned those decisions into working code much faster than I could alone. When something looked wrong, I had to explain what I wanted, test it, and ask again. That taught me that a clear idea matters more than a clever tool.</p>
-      <p>Every time Claude changed something, I checked it carefully. Before I publish anything to Hugging Face or GitHub, I check it again, and if I find a mistake I ask Claude to fix it. Slowly I learned to read code, and now I fix some small errors myself without asking for help.</p></div>
+      <h4 style="margin-top:16px">Reflection</h4><p class="tldr"><b>In one line:</b> AI is my builder's tool. The idea, the decisions and the checking stay with me.</p><p>AI helped me move faster, but it did not decide what this portfolio should prove. I chose the projects to feature, the audience I wanted to serve and the parts of the design that should stay recognisably mine. The value came from giving clear constraints, testing the output and rejecting changes that weakened the result.</p>
+      <p>For this website, I decided what to show, which projects deserved attention and how the visual identity should feel. AI helped translate those decisions into code and clearer writing. When something looked wrong, I had to describe the problem precisely, test the change and ask for a better solution. A clear brief mattered more than a clever prompt.</p>
+      <p>I learned not to accept generated code just because it runs. I check the changed behaviour, look for regressions and keep the original project requirements in view. Over time, reading the code and identifying the real cause of a bug has become part of my own workflow.</p></div>
     <div class="card sheet" data-tilt="4,5,1.01" style="grid-column:1/-1"><h4>When AI got it wrong</h4>
       <p>My app felt laggy, so I asked AI to make it run smoothly. It "fixed" the lag by deleting every 3D effect. The app was fast, but it was flat and no longer looked like mine. I did not accept that. I listed the effects that must stay (the hero depth, the tunnel, the draggable cube, the journey drum) and asked it to fix the real causes of the lag instead.</p>
       <ul class="rai"><li><b>What we changed.</b> The wave background now draws only while the hero is on screen, and the scroll code reads the page layout in one batch before it writes any changes.</li><li><b>What I learned.</b> "Make it faster" is too vague. AI will happily remove the part you love. Now I tell AI what must stay, and I test the result before I accept it.</li></ul></div>
@@ -699,7 +892,7 @@ html.lite .glow,html.lite .rail b::after{animation:none}
 
 <section id="find" class="layer" style="--lb:#ffe4dc"><button class="st3" style="left:52%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>Find me online</h2>
-  <p class="lead">The apps, the code and the photos live here. Hover a sign to flip it.</p>
+  <p class="lead">Explore my published apps and public profile. Hover or focus a card to reveal the link.</p>
   <div class="two" data-fx="swing">
     <a class="flip" href="https://huggingface.co/syuanteng315" target="_blank" rel="noopener"><div class="fi">
       <div class="ff front" style="--c1:var(--sun)"><span class="em">🤗</span><h4>Hugging Face</h4><small>syuanteng315</small></div>
@@ -817,7 +1010,7 @@ const SUBJ=[['F3_BM','Malay (BM)'],['F3_BI','English'],['F3_Math','Maths'],['F3_
 const EX={F3_BM:70,F3_BI:65,F3_Math:85,F3_Science:80,F3_Sejarah:60,F3_Geo:62,F3_RBT:75,F3_PSV:55};
 $('#sc').innerHTML=SUBJ.map(([k,l])=>`<label for="${k}">${l}</label><input id="${k}" type="number" inputmode="numeric" min="0" max="100" placeholder="0-100">`).join('');
 function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
-function barRow(name,p,top){const b=el('div','bar'+(top?' top':''));const i=el('i');i.style.width=Math.round(p*100)+'%';const w=el('span');w.append(el('span',null,name),el('span',null,Math.round(p*100)+'%'));b.append(i,w);return b}
+function barRow(name,p,top){const raw=Number(p)||0,pct=Math.max(0,Math.min(100,raw<=1?raw*100:raw));const b=el('div','bar'+(top?' top':''));const i=el('i');i.style.width=Math.round(pct)+'%';const w=el('span');w.append(el('span',null,name),el('span',null,Math.round(pct)+'%'));b.append(i,w);return b}
 $('#ex').onclick=()=>{SUBJ.forEach(([k])=>$('#'+k).value=EX[k])};
 $('#go').onclick=async()=>{
  const out=$('#out'),btn=$('#go'),body={};let bad=false;
@@ -851,8 +1044,8 @@ function cardHTML(p,f,i,pop){
  const hide=f!=='all'&&p.cat!==f?' hide':'';
  const tags=p.t.map(t=>`<span>${t}</span>`).join('');
  const link=`<a class="go" href="${HF}${p.slug}" target="_blank" rel="noopener">Open on Hugging Face</a>`;
- if(p.star)return `<article class="card pj star${hide}${pop?' pop':''}" style="--c:${COL[p.cat]};--n:${i}"><div class="sx"><div class="ic">${p.ic}</div><h3>${p.n}</h3><p>${p.d}</p><div class="tags">${tags}</div>${link}</div><div class="stk" aria-hidden="true"><div class="ly l1"><b>🧭</b>Predict</div><div class="ly l2"><b>⏱️</b>Focus</div><div class="ly l3"><b>🐉</b>Grow</div></div></article>`;
- return `<article class="card pj${hide}${pop?' pop':''}" style="--c:${COL[p.cat]};--n:${i}"><div class="ic">${p.ic}</div><h3>${p.n}</h3><p>${p.d}</p><div class="tags">${tags}</div>${link}</article>`}
+ if(p.star)return `<article tabindex="0" class="card pj star${hide}${pop?' pop':''}" aria-label="${p.n}. Press Enter to open this project." style="--c:${COL[p.cat]};--n:${i}"><div class="sx"><div class="ic">${p.ic}</div><h3>${p.n}</h3><p>${p.d}</p><div class="tags">${tags}</div>${link}</div><div class="stk" aria-hidden="true"><div class="ly l1"><b>🧭</b>Predict</div><div class="ly l2"><b>⏱️</b>Focus</div><div class="ly l3"><b>🐉</b>Grow</div></div></article>`;
+ return `<article tabindex="0" class="card pj${hide}${pop?' pop':''}" aria-label="${p.n}. Press Enter to open this project." style="--c:${COL[p.cat]};--n:${i}"><div class="ic">${p.ic}</div><h3>${p.n}</h3><p>${p.d}</p><div class="tags">${tags}</div>${link}</article>`}
 function render(f,pop){
  $('#grid').innerHTML=P.map((p,i)=>cardHTML(p,f,i,pop)).join('');
  $$('.pj').forEach(c=>{
@@ -860,7 +1053,8 @@ function render(f,pop){
   c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
    if(RM)return;st.trx=(.5-y)*14*amp;st.tryy=(x-.5)*18*amp;st.tsc=star?1.012:1.03;st.hover=true;TA.add(c);tiltKick()});
   c.addEventListener('pointerleave',()=>{st.trx=0;st.tryy=0;st.tsc=1;st.hover=false;tiltKick()});
-  c.addEventListener('click',e=>{if(!e.target.closest('a'))c.querySelector('a').click()})});
+  c.addEventListener('click',e=>{if(!e.target.closest('a'))c.querySelector('a').click()});
+  c.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a')){e.preventDefault();c.querySelector('a').click()}})});
  if(window.__dirty)window.__dirty()}
 $('#filters').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="f" data-k="${k}" aria-pressed="${k==='all'}">${v}</button>`).join('')+'<button class="f2" id="surp" type="button">🎲 Surprise me</button>';
 $('#filters').addEventListener('click',e=>{const b=e.target.closest('.f');if(!b)return;$$('.f').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.k,1)});
