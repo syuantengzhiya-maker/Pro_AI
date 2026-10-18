@@ -269,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 @property --dim{syntax:'<number>';inherits:false;initial-value:0}
 .layer>.wrap{transform-origin:50% 0}
 body{counter-reset:ly}
-.layer{position:sticky;top:0;counter-increment:ly;border-radius:30px 30px 0 0;box-shadow:0 -12px 32px #0d1b3d26;padding-top:84px!important;background-color:var(--lb,#fff7ec);background-image:linear-gradient(#2547f00d 1px,transparent 1px),linear-gradient(90deg,#2547f00d 1px,transparent 1px);background-size:32px 32px;}
+.layer{position:sticky;top:0;counter-increment:ly;border-radius:30px 30px 0 0;box-shadow:0 -12px 32px #0d1b3d26;padding-top:84px!important;background-color:var(--lb,#fff7ec);background-image:linear-gradient(#2547f00d 1px,transparent 1px),linear-gradient(90deg,#2547f00d 1px,transparent 1px);background-size:32px 32px;transform-style:preserve-3d;will-change:transform,clip-path,filter;backface-visibility:hidden}
 /* PERF: the dim overlay was never actually applied, but each one was a full-size GPU layer. Removed. */
 .layer::after{display:none}
 #demo.layer::before{color:#dbe3ff;background:#ffffff14;border-color:#8fa8ff}
@@ -280,9 +280,9 @@ footer{position:relative;z-index:60}
 
 /* ===== playground ===== */
 .pt{position:fixed;border-radius:50%;pointer-events:none;z-index:299}
-.st3{position:absolute;z-index:25;border:0;background:none;font-size:1.7rem;line-height:1;cursor:pointer;opacity:.28;filter:grayscale(.5);transition:opacity .3s,filter .3s;animation:twk 3.2s ease-in-out infinite}
+.st3{position:absolute;z-index:25;border:0;background:none;font-size:1.7rem;line-height:1;cursor:pointer;opacity:.55;filter:grayscale(.35);transition:opacity .3s,filter .3s;animation:twk 3.2s ease-in-out infinite;transform-origin:center center}
 .st3:hover,.st3:focus-visible{opacity:1;filter:none}
-@keyframes twk{0%,100%{transform:translateY(0) rotate(0deg) scale(1);opacity:0.28}50%{transform:translateY(-6px) rotate(-14deg) scale(1.15);opacity:0.6}}
+@keyframes twk{0%,100%{transform:translateY(0) rotate(0deg) scale(1);opacity:0.55}50%{transform:translateY(-8px) rotate(-14deg) scale(1.25);opacity:1}}
 .st3.got{animation:gotp .7s ease forwards;pointer-events:none}
 @keyframes gotp{to{transform:scale(3.5) rotate(240deg);opacity:0}}
 #hunt{position:fixed;left:18px;bottom:18px;z-index:120;border:2px solid var(--ink);border-radius:99px;background:var(--sun);padding:6px 14px;font:700 .85rem Figtree;color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .2s}
@@ -349,7 +349,7 @@ html.party .brand{display:inline-block;animation:wob .5s ease-in-out infinite}
 .layer,.story,.jour{overflow-x:clip!important}
 html,body{overflow-x:clip}
 /* v13: hidden stars always on top and easier to spot */
-.st3{z-index:80!important;opacity:.75!important;font-size:2rem!important;filter:drop-shadow(2px 3px 0 #0d1b3d55)!important}
+.st3{z-index:80!important;font-size:2rem!important;filter:drop-shadow(2px 3px 0 #0d1b3d55)!important}
 /* v15 */
 .layer,.story,.jour,.hero{overflow:clip!important}
 
@@ -671,7 +671,7 @@ footer .wrap{gap:18px}
 
 <div class="tkx" aria-hidden="true"><div class="ticker a" data-rot="-2.2"><div class="tk" id="tk"></div></div><div class="ticker b" data-rot="1.8"><div class="tk rev" id="tk2"></div></div></div>
 
-<section class="layer" style="--lb:#fff7ec"><div class="wrap">
+<section class="layer" data-enter="leftWhip" style="--lb:#fff7ec"><div class="wrap">
   <div class="judge-panel" aria-label="Judge quick navigation">
     <div class="judge-heading"><div><span class="judge-eyebrow">PRO AI CHALLENGE · QUICK NAVIGATION</span><h3>Everything you need to know about me.</h3></div><span class="judge-mark">9 CRITERIA · 1 PROFILE</span></div>
     <div class="judge-grid">
@@ -709,7 +709,7 @@ footer .wrap{gap:18px}
   </div>
 </section>
 
-<section id="about" class="layer" style="--lb:#ffeaf2"><button class="st3" style="left:46%;top:44px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
+<section id="about" class="layer" data-enter="rightDoor" style="--lb:#ffeaf2"><button class="st3" style="left:46%;top:44px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>About me</h2>
   <p class="section-kicker">CURIOUS BY DEFAULT · BUILDER BY PRACTICE</p>
   <div class="about" data-fx="door">
@@ -728,7 +728,7 @@ footer .wrap{gap:18px}
   </div>
 </div></section>
 
-<section id="edu" class="layer" style="--lb:#e3f7f0"><button class="st3" style="right:30%;top:40px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
+<section id="edu" class="layer" data-enter="leftDoor" style="--lb:#e3f7f0"><button class="st3" style="right:30%;top:40px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <div class="two" data-fx="fan">
     <div class="card paper edu-card" id="eduCard"><h4>Education</h4>
       <p><b style="color:var(--ink)">SMK Bandar Kuching No. 1</b>, Kuching, Sarawak<br>Form 4 (current)</p>
@@ -754,7 +754,7 @@ footer .wrap{gap:18px}
   </div>
 </div></section>
 
-<section id="demo" class="dark layer"><button class="st3" style="left:6%;bottom:24px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
+<section id="demo" class="dark layer" data-enter="rightWhip"><button class="st3" style="left:6%;bottom:24px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>Try the real Stream Predictor</h2>
   <p class="lead">Try the deployed model behind AuraStudy. Enter eight Form 3 marks from 0–100 to see its suggested stream and outputs. This is a learning tool, not a stream-placement decision. Discuss options with teachers and family.</p>
   <div data-fx="zoom">
@@ -778,14 +778,14 @@ footer .wrap{gap:18px}
   </div>
 </div></section>
 
-<section id="projects" class="layer" style="--lb:#fff1cf"><button class="st3" style="right:5%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
+<section id="projects" class="layer" data-enter="leftSlash" style="--lb:#fff1cf"><button class="st3" style="right:5%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>Selected projects</h2>
   <p class="lead">A growing portfolio across AI for education, interactive science and games. Open a project to explore the live build; the case study below explains the thinking behind my main education project.</p>
   <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
   <div class="grid" id="grid" data-fx="spiral"></div>
 </div></section>
 
-<section id="casestudy" class="layer" style="--lb:#e6f4ff"><div class="wrap">
+<section id="casestudy" class="layer" data-enter="rightIris" style="--lb:#e6f4ff"><div class="wrap">
   <h2>AuraStudy · behind the build</h2>
   <p class="lead">AuraStudy connects two decisions students often face separately: exploring an SPM stream and building a study routine. This case study shows the user problem, system architecture, model evaluation, safeguards and the next steps I would validate.</p>
   <div class="pipe" data-fx="flow">
@@ -834,7 +834,7 @@ footer .wrap{gap:18px}
   </div>
 </section>
 
-<section id="activities" class="layer" style="--lb:#e3f7f0"><div class="wrap">
+<section id="activities" class="layer" data-enter="leftIris" style="--lb:#e3f7f0"><div class="wrap">
   <h2>Activities &amp; service</h2>
   <p class="lead">Selected school activities and service roles, with links to public posts where available.</p>
   <div class="moments">
@@ -850,7 +850,7 @@ footer .wrap{gap:18px}
 </div>
 </div></section>
 
-<section id="ambition" class="layer" style="--lb:#e8edff"><div class="wrap" data-fx="drop">
+<section id="ambition" class="layer" data-enter="rightCart" style="--lb:#e8edff"><div class="wrap" data-fx="drop">
   <h2>Future ambition</h2>
   <div class="card big" data-tilt="10,14,1.02">
     <div class="orbs" aria-hidden="true"><i data-d="30">💻</i><i data-d="55">🎓</i><i data-d="20">🎤</i><i data-d="70">✨</i></div>
@@ -870,7 +870,7 @@ footer .wrap{gap:18px}
   </div>
 </div></section>
 
-<section id="ai" class="layer" style="--lb:#f1ecff"><div class="wrap">
+<section id="ai" class="layer" data-enter="leftPeel" style="--lb:#f1ecff"><div class="wrap">
   <h2>Responsible AI &amp; reflection</h2>
   <p class="lead">The tools matter less than the decisions, verification and responsibility behind the result.</p>
   <div class="two" data-fx="slide">
@@ -890,7 +890,7 @@ footer .wrap{gap:18px}
   </div>
 </div></section>
 
-<section id="find" class="layer" style="--lb:#ffe4dc"><button class="st3" style="left:52%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
+<section id="find" class="layer" data-enter="rightSlash" style="--lb:#ffe4dc"><button class="st3" style="left:52%;top:46px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <h2>Find me online</h2>
   <p class="lead">Explore my published apps and public profile. Hover or focus a card to reveal the link.</p>
   <div class="two" data-fx="swing">
@@ -1178,23 +1178,35 @@ addEventListener('keydown',e=>{
    if(f){const i=[...f.parentNode.children].indexOf(f);window.__jump&&window.__jump(faceK[i],e.clientX,e.clientY)}}});
  cw.addEventListener('pointercancel',rel);
 
- addEventListener('scroll',()=>dirty=1,{passive:true});addEventListener('resize',()=>dirty=1);
+ addEventListener('scroll',()=>{dirty=1;
+  // Drop any hover tilt left on cards while the page is moving
+  if(tl){tl.style.transform='';tl=null}
+  document.querySelectorAll('.card:not(.pj)').forEach(c=>{if(c.style.transform)c.style.transform=''});
+},{passive:true});addEventListener('resize',()=>dirty=1);
  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width*2-1;my=(e.clientY-r.top)/r.height*2-1});
  hero.addEventListener('pointerleave',()=>{mx=0;my=0});
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  // each card holds still for a while, then glides to the next (so a quick flick cannot skip a card)
  const hold=t=>t; /* continuous: cards never stop, they keep gliding */
  // each layer arrives in its own surprising way (v = 1 → hidden, 0 → arrived)
- const LV=[
-  v=>({tr:`translateX(${-v*110}vw) rotate(${-v*4}deg)`,og:'0% 100%'}),
-  v=>({tr:`perspective(1200px) translateX(${v*40}vw) rotateY(${v*45}deg)`,og:'100% 50%'}),
-  (v,l)=>({cp:`circle(${(1-v)*Math.hypot(innerWidth,l.offsetHeight)*1.05}px at 0% 100%)`}),
-  v=>({tr:`rotate(${v*7}deg) scale(${1-v*.45})`,og:'50% 100%'}),
-  v=>({tr:`translateX(${v*110}vw) rotate(${v*5}deg)`,og:'100% 100%'}),
-  v=>({cp:`polygon(0 0,${(1-v)*200}% 0,${(1-v)*200-100}% 100%,0 100%)`}),
-  v=>({tr:`perspective(1200px) translateX(${-v*40}vw) rotateY(${-v*45}deg)`,og:'0% 50%'}),
-  (v,l)=>({cp:`circle(${(1-v)*Math.hypot(innerWidth,l.offsetHeight)*1.05}px at 50% 100%)`})
- ];
+ /* Named layer entrances — softer motion, still left/right variety */
+ const ENTER={
+  leftWhip:(v)=>({tr:`perspective(1600px) translate3d(${-v*72}vw,${v*2}vh,${-v*180}px) rotateY(${-v*28}deg) rotateZ(${-v*2}deg)`,og:'0% 50%'}),
+  rightWhip:(v)=>({tr:`perspective(1600px) translate3d(${v*72}vw,${v*2}vh,${-v*180}px) rotateY(${v*28}deg) rotateZ(${v*2}deg)`,og:'100% 50%'}),
+  leftDoor:(v)=>({tr:`perspective(2000px) rotateY(${-v*55}deg)`,og:'0% 50%'}),
+  rightDoor:(v)=>({tr:`perspective(2000px) rotateY(${v*55}deg)`,og:'100% 50%'}),
+  leftIris:(v,l)=>({cp:`circle(${(1-v)*Math.hypot(innerWidth,l.offsetHeight||innerHeight)*1.15}px at 0% 50%)`}),
+  rightIris:(v,l)=>({cp:`circle(${(1-v)*Math.hypot(innerWidth,l.offsetHeight||innerHeight)*1.15}px at 100% 50%)`}),
+  leftSlash:(v)=>({cp:`polygon(0 0,${(1-v)*118}% 0,${(1-v)*118-28}% 100%,0 100%)`}),
+  rightSlash:(v)=>({cp:`polygon(${100-(1-v)*118+28}% 0,100% 0,100% 100%,${100-(1-v)*118}% 100%)`}),
+  leftCart:(v)=>({tr:`translate3d(${-v*70}vw,${v*8}vh,0) rotate(${-v*10}deg) scale(${1-v*.12})`,og:'0% 100%'}),
+  rightCart:(v)=>({tr:`translate3d(${v*70}vw,${v*8}vh,0) rotate(${v*10}deg) scale(${1-v*.12})`,og:'100% 100%'}),
+  leftPeel:(v)=>({tr:`perspective(1500px) translate3d(${-v*6}vw,${v*36}vh,${-v*100}px) rotateX(${v*38}deg)`,og:'0% 100%'}),
+  rightPeel:(v)=>({tr:`perspective(1500px) translate3d(${v*6}vw,${v*36}vh,${-v*100}px) rotateX(${v*38}deg)`,og:'100% 100%'})
+ };
+ const ENTER_FALLBACK=['leftWhip','rightWhip','leftDoor','rightDoor','leftIris','rightIris','leftSlash','rightSlash','leftCart','rightCart'];
+ /* smooth ease-out-cubic — no bounce, natural settle */
+ const layerEase=t=>t<=0?0:t>=1?1:1-Math.pow(1-t,3);
 
  const fcs=$$('.fc'),lw=layers.map(l=>l.querySelector(':scope>.wrap'));
  const nxs=layers.map(l=>{let n=l.nextElementSibling;while(n&&!n.matches('section,footer'))n=n.nextElementSibling;return n});
@@ -1211,8 +1223,17 @@ addEventListener('keydown',e=>{
    const ops=[];
    fxs.forEach(c=>{
     const cr=c.getBoundingClientRect();
-    if(cr.bottom<-200||cr.top>vh+500)return;
     const f=FX[c.dataset.fx],kids=c.children,n=kids.length;
+    // Scrolled fully past (above): settle every child so reverse scroll never shows half-warped cards
+    if(cr.bottom<-80){
+      for(let i=0;i<n;i++){const e=kids[i];if(!e||e.offsetParent===null)continue;e.__k=1;
+        sw(e,'transformOrigin','');sw(e,'translate','');sw(e,'rotate','');sw(e,'scale','');sw(e,'opacity','1');sw(e,'transform','')}
+      return}
+    // Still below the fold: keep at entrance start (hidden)
+    if(cr.top>vh+200){
+      for(let i=0;i<n;i++){const e=kids[i];if(!e||e.offsetParent===null)continue;e.__k=0;
+        sw(e,'opacity','0')}
+      return}
     for(let i=0;i<n;i++){const e=kids[i];if(e.offsetParent===null)continue;ops.push({e,i,n,f,top:cr.top+e.offsetTop,ox:e.offsetLeft+e.offsetWidth/2-c.offsetWidth/2,oy:e.offsetTop+e.offsetHeight/2-c.offsetHeight/2})}
    });
    const sr=story.getBoundingClientRect(),r2=jr.getBoundingClientRect();
@@ -1234,7 +1255,13 @@ addEventListener('keydown',e=>{
     const e=o.e,i=o.i;
     const kt=easeOut(clamp((vh*.96-o.top-(i%3)*30)/(vh*.5),0,1));
     const pk=e.__k===undefined?kt:e.__k;
-    const k=window.snapFx?kt:pk+(kt-pk)*.12;e.__k=Math.abs(kt-k)<.001?kt:k;if(e.__k!==kt)need=1;
+    // Smooth follow; slightly quicker when scrolling back up
+    const blend=window.snapFx?1:(kt>=pk?.1:.2);
+    const k=pk+(kt-pk)*blend;e.__k=Math.abs(kt-k)<.0008?kt:k;if(e.__k!==kt)need=1;
+    // Fully arrived → clear transforms (clean, not skewed)
+    if(k>0.995){
+      sw(e,'transformOrigin','');sw(e,'translate','');sw(e,'rotate','');sw(e,'scale','');sw(e,'opacity','1');sw(e,'transform','');
+      return}
     const q=o.f(easeOut(k),i,o.n,o.ox,o.oy);
     sw(e,'transformOrigin',q.o);
     sw(e,'translate',`${q.t[0].toFixed(1)}px ${q.t[1].toFixed(1)}px ${q.t[2].toFixed(1)}px`);
@@ -1267,21 +1294,38 @@ addEventListener('keydown',e=>{
     jbar.style.width=(prog*100).toFixed(2)+'%';jfloor.style.transform=`translateY(${((((-prog*900)%64)+64)%64).toFixed(1)}px)`;
     if(prog>.03&&!window.cfd){window.cfd=1;confetti()}
    }
-   // layers: each sheet arrives in its own way
+   // layers: arrive once, then stay flat forever (no broken reverse-scroll warps)
    layers.forEach((l,i)=>{
     const m=lm[i];
     const p=m.nt===null?0:clamp((m.top+m.h-m.nt)/Math.min(m.h,vh),0,1);
     const w=lw[i];if(w)sw(w,'scale',String((1-p*.06).toFixed(4)));
-    const tp=clamp((vh-m.top)/(vh*.78),0,1),pp=l.__p===undefined?tp:l.__p;
-    const q=tp; // arrival follows the scroll position exactly
-    l.__p=Math.abs(tp-q)<.003?tp:q;if(l.__p!==tp)need=1;
-    const v=1-easeOut(l.__p);
-    // fully waiting sheets are hidden outright, so their rotated corners can't peek into the story
-    if(v>.999){sw(l,'visibility','hidden');return}
+    // Already settled after first full arrival → never re-skew on the way back up
+    if(l.__arrived){
+      sw(l,'visibility','visible');sw(l,'transform','');sw(l,'clipPath','');sw(l,'transformOrigin','');
+      return}
+    // Wide, smooth runway tied to scroll; progress is eased toward target for silk
+    const raw=clamp((vh*1.2-m.top)/(vh*1.15),0,1);
+    const prev=l.__p===undefined?raw:l.__p;
+    // higher blend when catching up, lower when almost done → no stutter
+    const blend=window.snapFx?1:Math.abs(raw-prev)>0.2?.22:.12;
+    const tp=prev+(raw-prev)*blend;
+    l.__p=Math.abs(raw-tp)<.0008?raw:tp;
+    if(l.__p!==raw)need=1;
+    const v=1-layerEase(l.__p);
+    if(v>.995){sw(l,'visibility','hidden');return}
     sw(l,'visibility','visible');
-    if(v<.002){sw(l,'transform','');sw(l,'clipPath','');return}
-    const o=LV[i%LV.length](v,{offsetHeight:m.h});
-    sw(l,'transformOrigin',o.og||'50% 50%');sw(l,'transform',o.tr||'');sw(l,'clipPath',o.cp||'')});
+    if(v<.004){
+      l.__arrived=1;
+      sw(l,'transform','');sw(l,'clipPath','');sw(l,'transformOrigin','');sw(l,'filter','');
+      return}
+    const key=l.dataset.enter||ENTER_FALLBACK[i%ENTER_FALLBACK.length];
+    const fn=ENTER[key]||ENTER.leftWhip;
+    const o=fn(Math.max(0,v),{offsetHeight:m.h});
+    sw(l,'transformOrigin',o.og||'50% 50%');
+    sw(l,'transform',o.tr||'');
+    sw(l,'clipPath',o.cp||'none');
+    // very light depth cue only
+    sw(l,'filter',v>0.08?`brightness(${(1-v*.12).toFixed(3)})`:'')});
    if(need)dirty=1;
   }
   // continuous motion (PERF: only animate what is actually on screen)
