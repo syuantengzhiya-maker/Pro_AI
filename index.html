@@ -393,7 +393,7 @@ html,body{overflow-x:clip}
 .moments{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:22px;justify-items:stretch}
 @media(max-width:1000px){.moments{grid-template-columns:minmax(0,1fr)}}
 .mcard.fb{position:relative;max-width:none;width:100%}
-.mcard.fb.loaded::after{content:"Loading post…";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-weight:600}
+.mcard.fb::after{content:"Loading post…";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-weight:600}
 .mcard.fb iframe{position:relative;z-index:1}
 .big.off .bw{animation-play-state:paused}
 
@@ -403,8 +403,6 @@ html,body{overflow-x:clip}
 .jour .floor i{background:linear-gradient(#ff7eb677 2px,transparent 2px) 0 0/64px 64px,linear-gradient(90deg,#ff7eb677 2px,transparent 2px) 0 0/64px 64px}
 
 /* ===== v20: PERF — Facebook posts load on tap (9 live iframes were the biggest lag source) ===== */
-.mcard.fb:not(.loaded){min-height:190px;display:grid;place-items:center}
-.mcard.fb:not(.loaded) iframe{display:none}
 .fbgo{display:grid;gap:4px;place-items:center;width:100%;min-height:170px;border:2px dashed var(--ink);border-radius:12px;background:#f3f6ff;color:var(--ink);cursor:pointer;font:600 .95rem Figtree;transition:background .2s}
 .fbgo:hover{background:var(--sun)}
 .fbgo b{font:800 1.25rem 'Bricolage Grotesque'}
@@ -599,7 +597,7 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 
 <section id="activities" class="layer" style="--lb:#e3f7f0"><div class="wrap">
   <h2>Activities &amp; service</h2>
-  <p class="lead">Volunteering, leadership and events outside the classroom. Tap a card to load the Facebook post.</p>
+  <p class="lead">Volunteering, leadership and events outside the classroom.</p>
   <div class="moments">
 <div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
 <div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
@@ -1159,13 +1157,13 @@ document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(
    The 3D "Ambition" text also pauses when off screen. */
 (function(){
  const f=[...document.querySelectorAll('iframe[data-src]')];
- f.forEach(i=>{
-  const card=i.closest('.mcard');
-  const b=document.createElement('button');b.type='button';b.className='fbgo';
-  b.innerHTML='<b>📘 Facebook post</b><span>Tap to load</span>';
-  card.insertBefore(b,i);
-  b.addEventListener('click',()=>{i.src=i.dataset.src;i.removeAttribute('data-src');card.classList.add('loaded');b.remove();window.__fit&&window.__fit()});
- });
+ /* auto-load, but gently: a post starts loading only when it is within ~700px of the screen, and posts load one at a time */
+ const q=[];let busy=0;
+ function pump(){if(busy||!q.length)return;busy=1;const i=q.shift();if(i.dataset.src){i.src=i.dataset.src;i.removeAttribute('data-src')}setTimeout(()=>{busy=0;pump()},450)}
+ if('IntersectionObserver' in window){
+  const fio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fio.unobserve(e.target);q.push(e.target);pump()}}),{rootMargin:'700px 0px'});
+  f.forEach(i=>fio.observe(i));
+ }else{f.forEach(i=>{q.push(i);pump()})}
  if('IntersectionObserver' in window){
   const big=document.querySelector('.big');
   if(big)new IntersectionObserver(es=>big.classList.toggle('off',!es[0].isIntersecting)).observe(big)}
