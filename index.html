@@ -29,7 +29,7 @@ linear-gradient(90deg,#2547f012 1px,transparent 1px) 0 0/32px 32px,var(--paper)}
 h1,h2,h3,h4{font-family:'Bricolage Grotesque',sans-serif;margin:0;letter-spacing:-.02em;line-height:1.05}
 a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--pink),var(--sun));z-index:99}
+#bar{position:fixed;top:0;left:0;height:4px;width:100%;transform:scaleX(0);transform-origin:0 0;will-change:transform;background:linear-gradient(90deg,var(--blue),var(--violet),var(--pink),var(--sun));z-index:99}
 
 /* floating background shapes (fixed, behind everything) */
 #bgs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
@@ -110,13 +110,13 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:700px){.nums{grid-template-columns:1fr}}
 
 /* ============ STORY: tunnel fly-through ============ */
-.story{height:620vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
+.story{height:800vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
 .pin{position:sticky;top:0;height:100vh;overflow:hidden}
 .pin h2{position:absolute;top:8vh;left:0;right:0;text-align:center;font-size:clamp(1.5rem,3.4vw,2.5rem);z-index:3;padding:0 20px;margin:0}
 .stage{position:absolute;inset:0;perspective:1100px}
-.tn{position:absolute;left:50%;top:55%;width:min(700px,90vw);height:min(430px,60vh);margin:0;border:2px solid #8fa8ff;border-radius:34px;transform:translate(-50%,-50%);box-shadow:0 0 40px #4d6dff55,inset 0 0 40px #4d6dff33;pointer-events:none;will-change:transform,opacity}
+.tn{position:absolute;left:50%;top:55%;width:min(700px,90vw);height:min(430px,60vh);margin:0;border:2px solid #8fa8ff;border-radius:34px;transform:translate(-50%,-50%);box-shadow:0 0 18px #4d6dff66;pointer-events:none;will-change:transform,opacity}
 .tn:nth-child(3n){border-color:#ffc233}.tn:nth-child(3n+1){border-color:#ff7eb6}
-.sl3{position:absolute;left:50%;top:55%;width:min(540px,84vw);padding:34px;border:2px solid var(--ac);border-radius:20px;background:linear-gradient(145deg,#142563,#0a1741);box-shadow:0 0 40px color-mix(in srgb,var(--ac) 40%,transparent),inset 0 0 30px #2547f033;will-change:transform,opacity;pointer-events:none}
+.sl3{position:absolute;left:50%;top:55%;width:min(540px,84vw);padding:34px;border:2px solid var(--ac);border-radius:20px;background:linear-gradient(145deg,#142563,#0a1741);box-shadow:0 0 20px color-mix(in srgb,var(--ac) 45%,transparent);will-change:transform,opacity;pointer-events:none}
 .sl3 .ic{font-size:2.6rem;display:block;line-height:1}
 .sl3 h3{font-size:clamp(2.8rem,8vw,5rem);margin:10px 0;background:linear-gradient(90deg,#fff,var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sl3 p{color:#eef2ff;margin:0 0 14px}
@@ -161,7 +161,7 @@ h2.in .w{transform:none;opacity:1}
 /* ============ DEMO: holographic console, parts at different heights ============ */
 #demo.dark{background:radial-gradient(ellipse at 20% 0,#2a3fb0,transparent 55%),radial-gradient(ellipse at 90% 100%,#7b2f9a88,transparent 50%),#0b1233;border-block:1.5px solid var(--ink)}
 .dark h2{color:#fff}.dark .lead{color:#c8d2f0}
-.console{display:grid;grid-template-columns:1fr 1fr;gap:34px;padding:34px;border:2px solid #6f8cff;border-radius:24px;background:linear-gradient(145deg,#16286b,#0a1741);box-shadow:0 0 90px #2547f066;transform-style:preserve-3d;position:relative;transition:transform 0.3s var(--easeFast);will-change:transform}
+.console{display:grid;grid-template-columns:1fr 1fr;gap:34px;padding:34px;border:2px solid #6f8cff;border-radius:24px;background:linear-gradient(145deg,#16286b,#0a1741);box-shadow:0 0 36px #2547f066;transform-style:preserve-3d;position:relative;transition:transform 0.3s var(--easeFast);will-change:transform}
 .console::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(#6f8cff22 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,#6f8cff22 1px,transparent 1px) 0 0/24px 24px;pointer-events:none}
 @media(max-width:800px){.console{grid-template-columns:1fr;padding:22px}}
 .keys{transform:translateZ(36px);position:relative}
@@ -169,9 +169,9 @@ h2.in .w{transform:none;opacity:1}
 .fl label{font-weight:600;font-size:.9rem;color:#dbe3ff}
 .fl input{width:100%;padding:9px 11px;border:2px solid var(--ink);border-radius:10px;font:600 1rem Figtree;background:var(--paper);box-shadow:0 4px 0 #050b22;transition:all 0.2s var(--easeFast);will-change:transform}
 .fl input:focus{transform:translateY(-2px);box-shadow:0 6px 0 rgba(13, 27, 61, 0.15)}
-.holo{transform:translateZ(80px);background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:22px;box-shadow:14px 18px 0 #ff5a36aa,0 30px 60px #0008;position:relative;overflow:hidden;color:var(--ink)}
-.holo::after{content:"";position:absolute;left:0;right:0;height:60px;top:-60px;background:linear-gradient(transparent,#2547f01a,transparent);animation:scan 4s linear infinite;pointer-events:none}
-@keyframes scan{to{top:110%}}
+.holo{transform:translateZ(80px);background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:22px;box-shadow:14px 18px 0 #ff5a36aa,0 18px 30px #0008;position:relative;overflow:hidden;color:var(--ink)}
+.holo::after{content:"";position:absolute;left:0;right:0;top:0;height:100%;background:linear-gradient(transparent 0,#2547f01a 5%,transparent 10%);will-change:transform;animation:scan 4s linear infinite;pointer-events:none}
+@keyframes scan{from{transform:translateY(-12%)}to{transform:translateY(100%)}}
 .holo .tag3{font:700 .72rem var(--mono);color:var(--blue);letter-spacing:.08em;margin-bottom:8px}
 .bar{height:34px;border:1.5px solid var(--ink);border-radius:8px;margin:10px 0;position:relative;overflow:hidden;background:#fff}
 .bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--blue);opacity:.2;transition:width 0.4s var(--easeSmooth);will-change:width}
@@ -204,17 +204,17 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:800px){.pj.star{grid-template-columns:1fr}.stk{min-height:220px}}
 
 /* ============ JOURNEY: rolodex drum ============ */
-.jour{height:1000vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
+.jour{height:1300vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
 .drum{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(-440px)}
-.jc{position:absolute;left:50%;top:52%;width:min(640px,86vw);padding:30px 36px;border-radius:20px;border:2px solid #8fa8ff;background:linear-gradient(145deg,#1b2a78,#0f1850);box-shadow:0 0 60px #2547f055;backface-visibility:hidden;will-change:transform,opacity;pointer-events:none;transition:border-color .3s var(--easeFast)}
-.jc.win{border-color:var(--sun);box-shadow:0 0 70px #ffc23355}
+.jc{position:absolute;left:50%;top:52%;width:min(640px,86vw);padding:30px 36px;border-radius:20px;border:2px solid #8fa8ff;background:linear-gradient(145deg,#1b2a78,#0f1850);box-shadow:0 0 22px #2547f066;backface-visibility:hidden;will-change:transform,opacity;pointer-events:none;transition:border-color .3s var(--easeFast)}
+.jc.win{border-color:var(--sun);box-shadow:0 0 26px #ffc23366}
 .jc b{font:700 .85rem var(--mono);color:var(--sun);letter-spacing:.05em}.jc h3{font-size:clamp(1.6rem,4vw,2.5rem);margin:8px 0 6px;color:#fff}.jc p{margin:0;color:#c9d3f2}
 .jour .floor{background:linear-gradient(#ff7eb677 2px,transparent 2px) 0 0/64px 64px,linear-gradient(90deg,#ff7eb677 2px,transparent 2px) 0 0/64px 64px}
 
 /* ============ BIG STATEMENT: extruded 3D type + floating objects ============ */
 .big{padding:56px 40px;background:linear-gradient(135deg,var(--blue),var(--violet) 70%,#c04cf0);color:#fff;border-color:var(--ink);overflow:visible;min-height:340px;display:flex;flex-direction:column;justify-content:center}
 .big h3{font-size:clamp(1.9rem,5.2vw,3.8rem);display:flex;flex-wrap:wrap;gap:.1em .35em}
-.bw{display:inline-block;text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #1a37c4,4px 4px #1a37c4,5px 5px #17309f,6px 6px #12267e,7px 7px #12267e,8px 8px #0e1d66,16px 20px 30px #0009;animation:sway 5s ease-in-out infinite;animation-delay:calc(var(--i)*-1.2s);will-change:transform}
+.bw{display:inline-block;text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #1a37c4,4px 4px #1a37c4,5px 5px #17309f,6px 6px #12267e,7px 7px #12267e,8px 8px #0e1d66,12px 14px 0 #0d1b3d66;animation:sway 5s ease-in-out infinite;animation-delay:calc(var(--i)*-1.2s);will-change:transform}
 @keyframes sway{0%,100%{transform:rotateY(-16deg) translateZ(40px)}50%{transform:rotateY(16deg) translateZ(70px)}}
 .big p{max-width:56ch;color:#e6ebff;margin:18px 0 0;transform:translateZ(14px)}
 .orbs i{position:absolute;font-style:normal;font-size:2.4rem;will-change:translate;filter:drop-shadow(8px 10px 0 #0d1b3d44)}
@@ -269,7 +269,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 .layer>.wrap{transform-origin:50% 0}
 body{counter-reset:ly}
 .layer{position:sticky;top:0;counter-increment:ly;border-radius:30px 30px 0 0;box-shadow:0 -12px 32px #0d1b3d26;padding-top:84px!important;background-color:var(--lb,#fff7ec);background-image:linear-gradient(#2547f00d 1px,transparent 1px),linear-gradient(90deg,#2547f00d 1px,transparent 1px);background-size:32px 32px;}
-.layer::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#0d1b3d;opacity:var(--dim,0);pointer-events:none;z-index:30}
+/* PERF: the dim overlay was never actually applied, but each one was a full-size GPU layer. Removed. */
+.layer::after{display:none}
 #demo.layer::before{color:#dbe3ff;background:#ffffff14;border-color:#8fa8ff}
 footer{position:relative;z-index:60}
 .story,.jour{box-shadow:0 -12px 32px #0d1b3d26}
@@ -343,12 +344,12 @@ html.party .brand{display:inline-block;animation:wob .5s ease-in-out infinite}
 /* v11: flat projects so the page cannot blank on large windows */
 .pj,.grid .card{transform-style:flat!important;will-change:auto!important}
 .pj .ic,.pj h3,.pj p,.pj .tags,.pj a.go{transform:none!important}
-/* v12: stop 3D-rotated layers from widening the page (caused sideways scroll, so jumps landed off-screen = blank) */
+/* v12 */
 .layer,.story,.jour{overflow-x:clip!important}
 html,body{overflow-x:clip}
 /* v13: hidden stars always on top and easier to spot */
 .st3{z-index:80!important;opacity:.75!important;font-size:2rem!important;filter:drop-shadow(2px 3px 0 #0d1b3d55)!important}
-/* v15: transformed 3D slides/layers must not inflate the page height (caused fragment links to land at the wrong place) */
+/* v15 */
 .layer,.story,.jour,.hero{overflow:clip!important}
 
 /* ===== v16: judge-friendly additions (all 3D effects untouched) ===== */
@@ -388,13 +389,32 @@ html,body{overflow-x:clip}
 .ach h3{font-size:1.25rem}
 .big{padding:44px 34px;min-height:300px}
 
-/* ===== v18: Activities = 2 stable columns, posts load only when near the screen ===== */
+/* ===== v18: Activities = 2 stable columns ===== */
 .moments{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:22px;justify-items:stretch}
 @media(max-width:1000px){.moments{grid-template-columns:minmax(0,1fr)}}
 .mcard.fb{position:relative;max-width:none;width:100%}
-.mcard.fb::after{content:"Loading post…";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-weight:600}
+.mcard.fb.loaded::after{content:"Loading post…";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-weight:600}
 .mcard.fb iframe{position:relative;z-index:1}
 .big.off .bw{animation-play-state:paused}
+
+/* ===== v19: smoothness ===== */
+.floor{background:none!important;overflow:hidden}
+.floor i{position:absolute;left:0;right:0;top:-64px;bottom:0;background:linear-gradient(#4d6dff77 2px,transparent 2px) 0 0/64px 64px,linear-gradient(90deg,#4d6dff77 2px,transparent 2px) 0 0/64px 64px;will-change:transform}
+.jour .floor i{background:linear-gradient(#ff7eb677 2px,transparent 2px) 0 0/64px 64px,linear-gradient(90deg,#ff7eb677 2px,transparent 2px) 0 0/64px 64px}
+
+/* ===== v20: PERF — Facebook posts load on tap (9 live iframes were the biggest lag source) ===== */
+.mcard.fb:not(.loaded){min-height:190px;display:grid;place-items:center}
+.mcard.fb:not(.loaded) iframe{display:none}
+.fbgo{display:grid;gap:4px;place-items:center;width:100%;min-height:170px;border:2px dashed var(--ink);border-radius:12px;background:#f3f6ff;color:var(--ink);cursor:pointer;font:600 .95rem Figtree;transition:background .2s}
+.fbgo:hover{background:var(--sun)}
+.fbgo b{font:800 1.25rem 'Bricolage Grotesque'}
+.fbgo span{color:var(--soft);font-size:.85rem}
+
+/* ===== v20: PERF — automatic Smooth mode (switches on by itself if the device is slow) ===== */
+html.lite .bs,html.lite .tn,html.lite .floor,html.lite #cur{display:none}
+html.lite .holo::after,html.lite .bw,html.lite .st3,html.lite .hint,html.lite .pile .tip{animation:none}
+html.lite .layer,html.lite .story,html.lite .jour,html.lite .console,html.lite .sl3,html.lite .jc,html.lite .jc.win{box-shadow:none}
+html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4px #12267e}
 </style>
 </head>
 <body>
@@ -436,7 +456,7 @@ html,body{overflow-x:clip}
 
 <section id="story" class="story" aria-label="How AuraStudy works">
   <div class="pin">
-    <div class="floor" aria-hidden="true"></div>
+    <div class="floor" aria-hidden="true"><i></i></div>
     <h2>How AuraStudy carries a student through</h2>
     <div class="stage">
       <i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i>
@@ -459,10 +479,10 @@ html,body{overflow-x:clip}
       <div class="facts"><span>📍 Kuching, Sarawak</span><span>🎒 Tingkatan 4</span><span>🏀 shooting only</span><span>🎤 sings for fun</span></div>
     </div>
     <div class="pile" id="pile">
-      <figure class="pol p1" data-photos="avatar.jpg,avatar2.jpg,avatar3.jpg"><div class="ph" data-e="🙂" style="--bg:#ffe3a8"><img src="photos/avatar.jpg" alt="Syuan" onerror="this.style.display='none'"></div><figcaption>me</figcaption></figure>
-      <figure class="pol p2" data-photos="photo2.jpg,photo4.jpg,photo5.jpg"><div class="ph" data-e="📷" style="--bg:#ffc9de"><img src="photos/photo2.jpg" alt="Photography" onerror="this.style.display='none'"></div><figcaption>photography</figcaption></figure>
-      <figure class="pol p3" data-photos="photo3.jpg,photo6.jpg,photo7.jpg"><div class="ph" data-e="🎤" style="--bg:#bff1e4"><img src="photos/photo3.jpg" alt="Presenting" onerror="this.style.display='none'"></div><figcaption>presenting</figcaption></figure>
-      <figure class="pol p4" data-photos="travel1.jpg,travel2.jpg,travel3.jpg"><div class="ph" data-e="🧳" style="--bg:#d6ccff"><img src="photos/travel1.jpg" alt="Travel" onerror="this.style.display='none'"></div><figcaption>solo trip</figcaption></figure>
+      <figure class="pol p1" data-photos="avatar.jpg,avatar2.jpg,avatar3.jpg"><div class="ph" data-e="🙂" style="--bg:#ffe3a8"><img src="photos/avatar.jpg" alt="Syuan" decoding="async" onerror="this.style.display='none'"></div><figcaption>me</figcaption></figure>
+      <figure class="pol p2" data-photos="photo2.jpg,photo4.jpg,photo5.jpg"><div class="ph" data-e="📷" style="--bg:#ffc9de"><img src="photos/photo2.jpg" alt="Photography" decoding="async" onerror="this.style.display='none'"></div><figcaption>photography</figcaption></figure>
+      <figure class="pol p3" data-photos="photo3.jpg,photo6.jpg,photo7.jpg"><div class="ph" data-e="🎤" style="--bg:#bff1e4"><img src="photos/photo3.jpg" alt="Presenting" decoding="async" onerror="this.style.display='none'"></div><figcaption>presenting</figcaption></figure>
+      <figure class="pol p4" data-photos="travel1.jpg,travel2.jpg,travel3.jpg"><div class="ph" data-e="🧳" style="--bg:#d6ccff"><img src="photos/travel1.jpg" alt="Travel" decoding="async" onerror="this.style.display='none'"></div><figcaption>solo trip</figcaption></figure>
       <div class="tip">👆 tap a photo to flip to the next one 📸</div>
     </div>
   </div>
@@ -514,7 +534,7 @@ html,body{overflow-x:clip}
 
 <section id="journey" class="story jour" aria-label="Journey">
   <div class="pin">
-    <div class="floor" aria-hidden="true"></div>
+    <div class="floor" aria-hidden="true"><i></i></div>
     <h2>Journey</h2>
     <div class="stage"><div class="drum">
       <div class="jc win"><b>2026 · NATIONAL</b><h3>Finalist (Top 6)</h3><p>GirlsCode Challenge</p> <a class="jlink" href="https://www.facebook.com/share/p/1HCubgcgbX/" target="_blank" rel="noopener">Watch the finalist video ↗</a></div>
@@ -533,7 +553,7 @@ html,body{overflow-x:clip}
 
 <section id="activities" class="layer" style="--lb:#e3f7f0"><div class="wrap">
   <h2>Activities &amp; service</h2>
-  <p class="lead">Volunteering, leadership and events outside the classroom.</p>
+  <p class="lead">Volunteering, leadership and events outside the classroom. Tap a card to load the Facebook post.</p>
   <div class="moments">
 <div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
 <div class="mcard fb"><iframe title="Facebook post about my activities" data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
@@ -613,7 +633,7 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const HF='https://huggingface.co/spaces/syuanteng315/';
 
-/* ===== 超级丝滑动画优化Easing Functions ===== */
+/* ===== Easing Functions ===== */
 const easeSmooth=p=>{const c1=1.70158,c3=c1+1;return p<0.5?(Math.pow(2*p,2)*((c3+1)*2*p-c1))/2:(Math.pow(2*p-2,2)*((c3+1)*(p*2-2)+c1)+2)/2};
 const easeFast=p=>p<0.5?((2*p)*(2*p))/2:-1+(4-2*p)*p;
 const easeOut=p=>1-Math.pow(1-p,3);
@@ -651,10 +671,10 @@ let ri=0,ci=0,del=0;const ty=$('#typed');
  if(del&&ci===0){del=0;ri=(ri+1)%roles.length}
  ci+=del?-1:1;setTimeout(loop,del?35:70)})();
 
-/* ---- hero wave field ---- */
-const cv=$('#field'),cx=cv.getContext('2d');const CELL=8;let W,H,img,mouse=null,rip=[],heroVis=true;
+/* ---- hero wave field (PERF: bigger cells + 20fps + pauses when hero is off screen / tab hidden / Smooth mode) ---- */
+const cv=$('#field'),cx=cv.getContext('2d');const CELL=innerWidth<900?16:12;let W,H,img,mouse=null,rip=[],heroVis=true;
 function size(){const r=cv.parentElement.getBoundingClientRect();W=Math.ceil(r.width/CELL);H=Math.ceil(r.height/CELL);cv.width=W;cv.height=H;img=cx.createImageData(W,H)}
-size();addEventListener('resize',size);
+size();let rsT=0;addEventListener('resize',()=>{clearTimeout(rsT);rsT=setTimeout(size,150)});
 const hero=$('.hero');
 new IntersectionObserver(es=>heroVis=es[0].isIntersecting).observe(hero);
 hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mouse={x:(e.clientX-r.left)/CELL,y:(e.clientY-r.top)/CELL}});
@@ -662,16 +682,17 @@ hero.addEventListener('pointerleave',()=>mouse=null);
 hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button,.cubeWrap'))return;const r=hero.getBoundingClientRect();rip.push({x:(e.clientX-r.left)/CELL,y:(e.clientY-r.top)/CELL,t:performance.now()})});
 let lastF=0;
 function frame(now){
- if((heroVis||RM)&&now-lastF>=32){lastF=now;
- const t=now/1000,k=.42,d=img.data;
+ if((heroVis||RM)&&!window.LITE&&!document.hidden&&now-lastF>=50){lastF=now;
+ const t=now/1000,k=.42*(CELL/8),d=img.data;
  const src=[{x:W*.22,y:H*.5,a:1},{x:W*.78,y:H*.45,a:1}];
  if(mouse)src.push({x:mouse.x,y:mouse.y,a:1.3});
  rip=rip.filter(r=>now-r.t<3500);
+ const rs=CELL/8;
  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
   let v=0;
   for(const s of src){const dx=x-s.x,dy=y-s.y;v+=s.a*Math.sin(k*Math.sqrt(dx*dx+dy*dy)-t*3)}
   for(const r of rip){const dx=x-r.x,dy=y-r.y,dist=Math.sqrt(dx*dx+dy*dy),age=(now-r.t)/1000;
-   const front=age*28;if(Math.abs(dist-front)<14)v+=2.2*Math.sin(k*(dist-front)*1.4)*(1-age/3.5)}
+   const front=age*28/rs;if(Math.abs(dist-front)<14/rs)v+=2.2*Math.sin(k*(dist-front)*1.4)*(1-age/3.5)}
   v/=src.length+.5;const i=(y*W+x)*4,a=Math.min(1,Math.abs(v))*95;
   if(v>0){d[i]=37;d[i+1]=71;d[i+2]=240}else{d[i]=255;d[i+1]=90;d[i+2]=54}
   d[i+3]=a}
@@ -680,14 +701,14 @@ function frame(now){
 requestAnimationFrame(frame);
 
 /* scroll progress */
-addEventListener('scroll',()=>{const h=document.documentElement;$('#bar').style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+'%'},{passive:true});
+const barEl=$('#bar');let barT=0;addEventListener('scroll',()=>{if(barT)return;barT=requestAnimationFrame(()=>{barT=0;const h=document.documentElement;barEl.style.transform='scaleX('+(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight)).toFixed(4)+')'})},{passive:true});
 
 /* counters */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;io.unobserve(el);
  if(el.dataset.n){const n=+el.dataset.n;let c=0;(function s(){c=Math.min(n,c+1);el.textContent=c;if(c<n)setTimeout(s,RM?0:90)})()}
 }),{threshold:.6});
 $$('[data-n]').forEach(e=>io.observe(e));
-function confetti(){const c=['#2547f0','#ff5a36','#ffc233','#12c9a0','#ff7eb6'];for(let i=0;i<55;i++){const p=document.createElement('i');p.className='cf';p.style.left=Math.random()*100+'vw';p.style.background=c[i%5];p.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),3200)}}
+function confetti(){const c=['#2547f0','#ff5a36','#ffc233','#12c9a0','#ff7eb6'];const n=window.LITE?20:55;for(let i=0;i<n;i++){const p=document.createElement('i');p.className='cf';p.style.left=Math.random()*100+'vw';p.style.background=c[i%5];p.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),3200)}}
 
 /* ---- cube faces ---- */
 const cube=$('#cube');
@@ -727,11 +748,12 @@ $('#go').onclick=async()=>{
 };
 
 /* ---- projects ---- */
-const TA=new Set();
-(function tiltTick(){TA.forEach(c=>{const t=c.__t;t.rx+=(t.trx-t.rx)*.12;t.ry+=(t.tryy-t.ry)*.12;t.sc+=(t.tsc-t.sc)*.12;
+const TA=new Set();let tiltRun=0;
+function tiltTick(){TA.forEach(c=>{const t=c.__t;t.rx+=(t.trx-t.rx)*.12;t.ry+=(t.tryy-t.ry)*.12;t.sc+=(t.tsc-t.sc)*.12;
   c.style.transform=`perspective(900px) rotateX(${t.rx.toFixed(2)}deg) rotateY(${t.ry.toFixed(2)}deg) scale(${t.sc.toFixed(4)})`;
   if(!t.hover&&Math.abs(t.rx)<.015&&Math.abs(t.ry)<.015&&Math.abs(t.sc-1)<.0003){c.style.transform='';TA.delete(c)}});
- requestAnimationFrame(tiltTick)})();
+ if(TA.size)requestAnimationFrame(tiltTick);else tiltRun=0}
+function tiltKick(){if(!tiltRun){tiltRun=1;requestAnimationFrame(tiltTick)}}
 function cardHTML(p,f,i,pop){
  const hide=f!=='all'&&p.cat!==f?' hide':'';
  const tags=p.t.map(t=>`<span>${t}</span>`).join('');
@@ -743,8 +765,8 @@ function render(f,pop){
  $$('.pj').forEach(c=>{
   const st={rx:0,ry:0,sc:1,trx:0,tryy:0,tsc:1,hover:false},star=c.classList.contains('star'),amp=star?.45:1;c.__t=st;
   c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
-   if(RM)return;st.trx=(.5-y)*14*amp;st.tryy=(x-.5)*18*amp;st.tsc=star?1.012:1.03;st.hover=true;TA.add(c)});
-  c.addEventListener('pointerleave',()=>{st.trx=0;st.tryy=0;st.tsc=1;st.hover=false});
+   if(RM)return;st.trx=(.5-y)*14*amp;st.tryy=(x-.5)*18*amp;st.tsc=star?1.012:1.03;st.hover=true;TA.add(c);tiltKick()});
+  c.addEventListener('pointerleave',()=>{st.trx=0;st.tryy=0;st.tsc=1;st.hover=false;tiltKick()});
   c.addEventListener('click',e=>{if(!e.target.closest('a'))c.querySelector('a').click()})});
  if(window.__dirty)window.__dirty()}
 $('#filters').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="f" data-k="${k}" aria-pressed="${k==='all'}">${v}</button>`).join('')+'<button class="f2" id="surp" type="button">🎲 Surprise me</button>';
@@ -773,16 +795,28 @@ addEventListener('keydown',e=>{
  if(e.key==='Enter')go(list[sel]);
 });
 
-/* ===== layers: sticky sheets ===== */
+/* ===== layers: sticky sheets (PERF: batched layout reads/writes + debounced, no more layout thrashing) ===== */
 (function(){
  const L=$$('section.layer'),NAV=58;
- function natTop(el){const p=el.style.position;el.style.position='static';const v=el.offsetTop;el.style.position=p;return v}
- function fit(){const vh=innerHeight;L.forEach(s=>{s.style.top=Math.min(NAV,vh-s.offsetHeight)+'px'});
-  // offsetTop of a sticky layer moves with the scroll (sticky shift), so arrival uses the natural position
-  document.querySelectorAll('section,footer').forEach(x=>x.__nat=natTop(x));}
+ function fitNow(){
+  const vh=innerHeight,all=[...document.querySelectorAll('section,footer')];
+  // 1) read all heights first
+  const hs=L.map(s=>s.offsetHeight);
+  // 2) write all tops
+  L.forEach((s,i)=>{s.__h=hs[i];s.style.top=Math.min(NAV,vh-hs[i])+'px'});
+  // 3) natural (non-sticky) positions: switch everything to static ONCE, read once, restore ONCE
+  const old=all.map(x=>x.style.position);
+  all.forEach(x=>x.style.position='static');
+  const tops=all.map(x=>x.offsetTop);
+  all.forEach((x,i)=>{x.style.position=old[i];x.__nat=tops[i]});
+  window.__dirty&&window.__dirty();
+ }
+ let fitT=0,first=1;
+ function fit(){if(first){first=0;return fitNow()}clearTimeout(fitT);fitT=setTimeout(fitNow,120)}
  $$('body>section, body>footer').forEach((s,i)=>s.style.zIndex=10+i);
  fit();addEventListener('resize',fit);addEventListener('load',fit);
  if(window.ResizeObserver){const ro=new ResizeObserver(fit);L.forEach(s=>ro.observe(s))}
+ window.__fit=fit;
 })();
 
 /* ===== 3D engine: every section gets its own entrance ===== */
@@ -809,10 +843,11 @@ addEventListener('keydown',e=>{
  };
  const fxs=$$('[data-fx]');
  const ticks=$$('.ticker'),heroWrap=$('.hero .wrap'),hd=$$('.hero [data-d]'),field=$('#field'),orbs=$$('.orbs i');
- const slides=$$('.sl3'),tns=$$('.tn'),labs=$$('.lab3 span'),sbar=$('.prog3 i'),floor=$('.floor'),story=$('#story');
- const jr=$('#journey'),jcs=$$('.jc'),jbar=jr.querySelector('.prog3 i'),jfloor=jr.querySelector('.floor');
+ const slides=$$('.sl3'),tns=$$('.tn'),labs=$$('.lab3 span'),sbar=$('.prog3 i'),floor=$('.floor i'),story=$('#story');
+ const jr=$('#journey'),jcs=$$('.jc'),jbar=jr.querySelector('.prog3 i'),jfloor=jr.querySelector('.floor i');
  const shapes=$$('.bs'),pile=$('#pile'),cons=$('#cons'),cw=$('.cubeWrap'),layers=$$('section.layer');
- let dirty=1,lastY=scrollY,vel=0,mx=0,my=0,sx=0,sy=0;
+ const bigEl=$('.big');
+ let dirty=1,lastY=scrollY,vel=0,mx=0,my=0,sx=0,sy=0;const SMO={};
  window.__dirty=()=>dirty=1;
  const rings=$$('.ring').map((e,k)=>{const chips=[...e.querySelector('.orb3').children];const g={chips,n:chips.length,R:+e.dataset.r,dir:k?-1:1,vis:false,off:0,vel:0,base:0,sp:1,hover:false,drag:null};new IntersectionObserver(es=>g.vis=es[0].isIntersecting).observe(e);
   e.style.cursor='grab';
@@ -855,7 +890,7 @@ addEventListener('keydown',e=>{
  hero.addEventListener('pointerleave',()=>{mx=0;my=0});
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  // each card holds still for a while, then glides to the next (so a quick flick cannot skip a card)
- const hold=t=>{const i=Math.floor(t),x=t-i,u=clamp((x-.28)/.44,0,1);return i+u*u*(3-2*u)};
+ const hold=t=>t; /* continuous: cards never stop, they keep gliding */
  // each layer arrives in its own surprising way (v = 1 → hidden, 0 → arrived)
  const LV=[
   v=>({tr:`translateX(${-v*110}vw) rotate(${-v*4}deg)`,og:'0% 100%'}),
@@ -877,6 +912,8 @@ addEventListener('keydown',e=>{
   sx+=(mx-sx)*.1;sy+=(my-sy)*.1;
   if(dirty||Math.abs(vel)>.05||Math.abs(mx-sx)>.002||Math.abs(my-sy)>.002){
    dirty=0;let need=0;
+   /* silky inertia: progress eases toward the scroll position instead of jumping with every wheel tick */
+   const sm=(k,v)=>{if(window.snapFx){SMO[k]=v;return v}const c=SMO[k]===undefined?v:SMO[k];let n=c+(v-c)*.085;if(Math.abs(v-n)<.0002)n=v;SMO[k]=n;if(n!==v)need=1;return n};
    /* ---------- READ PHASE (all layout reads first, no writes) ---------- */
    const ops=[];
    fxs.forEach(c=>{
@@ -886,7 +923,7 @@ addEventListener('keydown',e=>{
     for(let i=0;i<n;i++){const e=kids[i];if(e.offsetParent===null)continue;ops.push({e,i,n,f,top:cr.top+e.offsetTop})}
    });
    const sr=story.getBoundingClientRect(),r2=jr.getBoundingClientRect();
-   const lm=layers.map((l,i)=>({top:(l.__nat??l.offsetTop)-y,h:l.offsetHeight,nt:nxs[i]?((nxs[i].__nat??nxs[i].offsetTop)-y):null}));
+   const lm=layers.map((l,i)=>({top:(l.__nat??l.offsetTop)-y,h:l.__h||l.offsetHeight,nt:nxs[i]?((nxs[i].__nat??nxs[i].offsetTop)-y):null}));
    /* ---------- WRITE PHASE ---------- */
    ticks.forEach(t=>sw(t,'transform',`rotate(${t.dataset.rot}deg) skewX(${clamp(-vel*.35,-9,9).toFixed(2)}deg)`));
    // hero: layers separate in depth
@@ -914,37 +951,36 @@ addEventListener('keydown',e=>{
    });
    // tunnel fly-through
    if(sr.bottom>-vh&&sr.top<vh*1.2){
-    const prog=clamp(-sr.top/(sr.height-vh),0,1),t=hold(prog*(slides.length-1));
+    const prog=sm('s',clamp(-sr.top/(sr.height-vh),0,1)),t=hold(prog*(slides.length-1));
     slides.forEach((s,i)=>{
      const d=i-t;let x,yy,z,ry,o;
      if(d>=0){z=-d*560;x=d*150;yy=-d*34;ry=-d*30;o=d<=1?1:clamp(2-d,0,1)}
-     else{z=-d*900;x=d*620;yy=d*-10;ry=-d*38;o=clamp(1+d*2.6,0,1)}
+     else{z=-d*900;x=d*620;yy=d*-10;ry=-d*38;o=clamp(1+d*1.5,0,1)}
      s.style.transform=`translate(-50%,-50%) translate3d(${x.toFixed(1)}px,${yy.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg)`;
      s.style.opacity=o.toFixed(3);
      sw(s,'zIndex',String(100-Math.round(Math.abs(d)*10)));
     });
-    tns.forEach((r,i)=>{const z=((i*300+prog*2100)%2100)-1900;
+    if(!window.LITE)tns.forEach((r,i)=>{const z=((i*300+prog*2100)%2100)-1900;
      r.style.transform=`translate(-50%,-50%) translateZ(${z.toFixed(1)}px)`;
      r.style.opacity=(clamp((z+1900)/900,0,1)*clamp((250-z)/250,0,1)*.65).toFixed(3)});
     sbar.style.width=(prog*100).toFixed(2)+'%';
-    floor.style.backgroundPosition=`0 ${(prog*900).toFixed(1)}px`;
+    floor.style.transform=`translateY(${((prog*900)%64).toFixed(1)}px)`;
     const on=Math.round(t);labs.forEach((l,i)=>l.classList.toggle('on',i===on));
    }
    // rolodex drum
    if(r2.bottom>-vh&&r2.top<vh*1.2){
-    const prog=clamp(-r2.top/(r2.height-vh),0,1),t=hold(prog*(jcs.length-1));
+    const prog=sm('j',clamp(-r2.top/(r2.height-vh),0,1)),t=hold(prog*(jcs.length-1));
     jcs.forEach((c,i)=>{const d=i-t;c.style.transform=`translate(-50%,-50%) rotateX(${(-d*34).toFixed(2)}deg) translateZ(440px)`;c.style.opacity=clamp(1.5-Math.abs(d)*1.1,0,1).toFixed(3)});
-    jbar.style.width=(prog*100).toFixed(2)+'%';jfloor.style.backgroundPosition=`0 ${(-prog*900).toFixed(1)}px`;
+    jbar.style.width=(prog*100).toFixed(2)+'%';jfloor.style.transform=`translateY(${((((-prog*900)%64)+64)%64).toFixed(1)}px)`;
     if(prog>.03&&!window.cfd){window.cfd=1;confetti()}
    }
-   // layers: sheet underneath recedes + darkens; each sheet arrives in its own way
+   // layers: each sheet arrives in its own way
    layers.forEach((l,i)=>{
     const m=lm[i];
     const p=m.nt===null?0:clamp((m.top+m.h-m.nt)/Math.min(m.h,vh),0,1);
-    sw(l,'--dim',(p*.4).toFixed(3));
     const w=lw[i];if(w)sw(w,'scale',String((1-p*.06).toFixed(4)));
     const tp=clamp((vh-m.top)/(vh*.78),0,1),pp=l.__p===undefined?tp:l.__p;
-    const q=tp; // arrival follows the scroll position exactly (no lagging catch-up that makes sheets burst in late)
+    const q=tp; // arrival follows the scroll position exactly
     l.__p=Math.abs(tp-q)<.003?tp:q;if(l.__p!==tp)need=1;
     const v=1-easeOut(l.__p);
     // fully waiting sheets are hidden outright, so their rotated corners can't peek into the story
@@ -955,12 +991,12 @@ addEventListener('keydown',e=>{
     sw(l,'transformOrigin',o.og||'50% 50%');sw(l,'transform',o.tr||'');sw(l,'clipPath',o.cp||'')});
    if(need)dirty=1;
   }
-  // continuous motion
+  // continuous motion (PERF: only animate what is actually on screen)
+  const tt=now/1000,nearTop=y<vh*1.3;
   if(!drag){cry+=cvx;crx+=cvy;cvx+=(cvT-cvx)*.04;cvy*=.92}
-  cube.style.transform=`rotateX(${crx}deg) rotateY(${cry}deg)`;
-  const tt=now/1000;
-  shapes.forEach((s,i)=>{s.style.translate=`${Math.cos(tt*.3+i)*30}px ${Math.sin(tt*.4+i*2)*40-scrollY*.03*(i%3)}px`;s.style.rotate=`0 0 1 ${(scrollY*.04+tt*6)*(i%2?-1:1)}deg`});
-  orbs.forEach((o,i)=>{const d=+o.dataset.d;o.style.translate=`${Math.sin(tt*.8+i)*d*.3+sx*d*-.3}px ${Math.cos(tt*.7+i)*d*.4}px ${d}px`});
+  if(nearTop)cube.style.transform=`rotateX(${crx}deg) rotateY(${cry}deg)`;
+  if(nearTop&&!window.LITE)shapes.forEach((s,i)=>{s.style.translate=`${Math.cos(tt*.3+i)*30}px ${Math.sin(tt*.4+i*2)*40-scrollY*.03*(i%3)}px`;s.style.rotate=`0 0 1 ${(scrollY*.04+tt*6)*(i%2?-1:1)}deg`});
+  if(!window.LITE&&bigEl&&!bigEl.classList.contains('off'))orbs.forEach((o,i)=>{const d=+o.dataset.d;o.style.translate=`${Math.sin(tt*.8+i)*d*.3+sx*d*-.3}px ${Math.cos(tt*.7+i)*d*.4}px ${d}px`});
   rings.forEach(g=>{if(!g.vis)return;g.sp+=((g.hover?.15:1)-g.sp)*.08;g.base+=.33*g.sp;if(g.drag===null){g.off+=g.vel;g.vel*=.93}
    const ang=(scrollY*.25+g.base)*g.dir+g.off;
    g.chips.forEach((c,i)=>{const a=i*360/g.n+ang,f=(Math.cos(a*Math.PI/180)+1)/2;
@@ -973,21 +1009,22 @@ addEventListener('keydown',e=>{
 /* ===== playground: sparkles, star hunt, party, shortcuts ===== */
 (function(){
  const fine=matchMedia('(pointer:fine)').matches;
- let trail=fine&&!RM,lastT=0,party=false,pt=null;
+ let trail=fine&&!RM&&(navigator.hardwareConcurrency||8)>4,lastT=0,party=false,pt=null;
  const COLS=['#2547f0','#ff5a36','#ffc233','#12c9a0','#ff7eb6','#7b5cff'];
  function dot(x,y,spread,size,dur){
   const d=document.createElement('i');d.className='pt';const s=size||(6+Math.random()*7);
   d.style.cssText=`left:${x}px;top:${y}px;width:${s}px;height:${s}px;background:${COLS[Math.random()*6|0]}`;
   document.body.appendChild(d);const a=Math.random()*6.283,r=spread*(.4+Math.random()*.6);
   d.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:`translate(calc(-50% + ${Math.cos(a)*r}px),calc(-50% + ${Math.sin(a)*r+20}px)) scale(0)`,opacity:0}],{duration:dur||700,easing:'cubic-bezier(.2,.8,.3,1)'}).onfinish=()=>d.remove()}
- function burst(x,y,n){if(RM)return;for(let i=0;i<n;i++)dot(x,y,80,null,800)}
+ function burst(x,y,n){if(RM)return;if(window.LITE)n=Math.ceil(n/2);for(let i=0;i<n;i++)dot(x,y,80,null,800)}
  const tz=$('#toast');let tt;
  function toast(m){tz.textContent=m;tz.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>tz.classList.remove('on'),2800)}
+ window.__toast=toast;
 
  // sparkle trail + click bursts
  const fx=$('#fxt');fx.setAttribute('aria-pressed',String(trail));
  fx.onclick=()=>{trail=!trail;fx.setAttribute('aria-pressed',String(trail));toast(trail?'✨ Sparkles on':'Sparkles off')};
- addEventListener('pointermove',e=>{if(!trail||e.pointerType==='touch')return;const t=performance.now();if(t-lastT<45)return;lastT=t;dot(e.clientX,e.clientY,26,5+Math.random()*4,600)},{passive:true});
+ addEventListener('pointermove',e=>{if(!trail||e.pointerType==='touch')return;const t=performance.now();if(t-lastT<60)return;lastT=t;dot(e.clientX,e.clientY,26,5+Math.random()*4,600)},{passive:true});
  addEventListener('pointerdown',e=>{if(trail&&!e.target.closest('input'))burst(e.clientX,e.clientY,8)});
 
  // party mode
@@ -1025,23 +1062,18 @@ addEventListener('keydown',e=>{
 
  // small playthings
  let zt=10;
- // photo pool: every picture in the same photos/ folder
+ // photo pool (PERF: no more probing 17 files + decoding all of them at load; only the names in data-photos, after the page is idle)
  const FOLDER='photos/';
  const PHOTOS=['avatar.jpg','photo2.jpg','photo3.jpg','travel1.jpg'];
- const PROBE=[];for(let i=1;i<=10;i++)PROBE.push('photo'+i+'.jpg');for(let i=2;i<=6;i++)PROBE.push('travel'+i+'.jpg');for(let i=2;i<=3;i++)PROBE.push('avatar'+i+'.jpg');
  const CAP={'avatar.jpg':'me','photo2.jpg':'photography','photo3.jpg':'presenting','travel1.jpg':'solo trip'};
  let pool=[];
- const CACHE={};   // preloaded + decoded images, keyed by file name
+ const CACHE={};
  const GROUPS=[...document.querySelectorAll('[data-photos]')].flatMap(p=>p.dataset.photos.split(',').map(x=>x.trim()));
- const test=n=>new Promise(res=>{const im=new Image();im.onload=()=>{CACHE[n]=im;(im.decode?im.decode():Promise.resolve()).catch(()=>{});res(n)};im.onerror=()=>res(null);im.src=FOLDER+n});
- // preload everything at page load (pool candidates + every name listed in data-photos)
- Promise.all([...new Set([...PHOTOS,...PROBE,...GROUPS])].map(test)).then(r=>{pool=r.filter(Boolean)});
+ const test=n=>new Promise(res=>{const im=new Image();im.onload=()=>{CACHE[n]=im;res(n)};im.onerror=()=>res(null);im.src=FOLDER+n});
+ const idle=window.requestIdleCallback||(f=>setTimeout(f,2500));
+ const warm=()=>idle(()=>Promise.all([...new Set([...PHOTOS,...GROUPS])].map(test)).then(r=>{pool=r.filter(Boolean)}),{timeout:6000});
+ if(document.readyState==='complete')warm();else addEventListener('load',warm);
  const nameOf=p=>((p.querySelector('img').getAttribute('src')||'').split('/').pop());
- function setPhoto(p,n){const ph=p.querySelector('.ph'),im=p.querySelector('img'),cap=p.querySelector('figcaption');
-  ph.classList.remove('shuf');void ph.offsetWidth;ph.classList.add('shuf');
-  setTimeout(()=>{im.style.display='';im.classList.remove('dev');im.src=FOLDER+n;void im.offsetWidth;im.classList.add('dev');cap.textContent=CAP[n]||'a good day'},230);
-  setTimeout(()=>ph.classList.remove('shuf'),560)}
- // mini gallery: each polaroid cycles through its own data-photos list
  function swapImg(p,n){const im=p.querySelector('img');
   p.__cur=n;
   p.classList.remove('flip');void p.offsetWidth;p.classList.add('flip');
@@ -1067,19 +1099,48 @@ document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(
   e.preventDefault();
   // offsetTop of a sticky layer includes its sticky shift, so read the natural position with stickiness off
   t.style.position='static';const y=t.offsetTop;t.style.position='';
-  // jump straight there: smooth scrolling is unreliable on this heavy, layered page
-  // arrive at the section already settled (no sweeping-in animation after a jump)
   window.snapFx=1;window.scrollTo({top:y,behavior:'instant'});setTimeout(()=>window.snapFx=0,400);history.replaceState(null,'','#'+t.id);
 }));
 </script>
 <script>
-/* Facebook posts load only when they are close to the screen; heavy 3D text pauses when off screen */
+/* PERF: Facebook posts are NOT loaded until you tap them (9 live iframes were the biggest cause of lag).
+   The 3D "Ambition" text also pauses when off screen. */
 (function(){
  const f=[...document.querySelectorAll('iframe[data-src]')];
- const load=i=>{if(i.dataset.src){i.src=i.dataset.src;i.removeAttribute('data-src')}};
- if(!('IntersectionObserver' in window)){f.forEach(load)}
- else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){load(e.target);io.unobserve(e.target)}}),{rootMargin:'500px 0px'});f.forEach(i=>io.observe(i));
-  const big=document.querySelector('.big');if(big)new IntersectionObserver(es=>big.classList.toggle('off',!es[0].isIntersecting)).observe(big)}
+ f.forEach(i=>{
+  const card=i.closest('.mcard');
+  const b=document.createElement('button');b.type='button';b.className='fbgo';
+  b.innerHTML='<b>📘 Facebook post</b><span>Tap to load</span>';
+  card.insertBefore(b,i);
+  b.addEventListener('click',()=>{i.src=i.dataset.src;i.removeAttribute('data-src');card.classList.add('loaded');b.remove();window.__fit&&window.__fit()});
+ });
+ if('IntersectionObserver' in window){
+  const big=document.querySelector('.big');
+  if(big)new IntersectionObserver(es=>big.classList.toggle('off',!es[0].isIntersecting)).observe(big)}
+})();
+</script>
+<script>
+/* PERF: automatic Smooth mode.
+   If this device cannot hold ~30fps, the page quietly drops the heaviest decorations
+   (wave canvas redraw, tunnel rings, floating shapes, glow shadows) and keeps ALL the main 3D motion.
+   Add ?lite to the URL to force it, or ?full to turn the auto-switch off. */
+(function(){
+ const q=location.search,root=document.documentElement;
+ if(q.indexOf('full')>-1)return;
+ function lite(auto){
+  if(window.LITE)return;window.LITE=1;root.classList.add('lite');
+  const f=document.getElementById('fxt');if(f&&f.getAttribute('aria-pressed')==='true')f.click();
+  if(auto&&window.__toast)setTimeout(()=>window.__toast('⚡ Smooth mode switched on automatically'),300);
+  window.__dirty&&window.__dirty();
+ }
+ if(q.indexOf('lite')>-1||(navigator.hardwareConcurrency||8)<=2||(navigator.deviceMemory&&navigator.deviceMemory<=2)){lite(false);return}
+ let last=0,bad=0,n=0;const start=performance.now();
+ function tick(t){
+  if(window.LITE)return;
+  const dt=t-last;last=t;
+  if(t-start>3500&&dt>0&&dt<250){n++;if(dt>30)bad++;if(n>=90){if(bad/n>.5)lite(true);n=0;bad=0}}
+  requestAnimationFrame(tick)}
+ requestAnimationFrame(tick);
 })();
 </script>
 </body>
