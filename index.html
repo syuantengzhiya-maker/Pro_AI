@@ -415,6 +415,22 @@ html.lite .bs,html.lite .tn,html.lite .floor,html.lite #cur{display:none}
 html.lite .holo::after,html.lite .bw,html.lite .st3,html.lite .hint,html.lite .pile .tip{animation:none}
 html.lite .layer,html.lite .story,html.lite .jour,html.lite .console,html.lite .sl3,html.lite .jc,html.lite .jc.win{box-shadow:none}
 html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4px #12267e}
+
+/* ===== v21: AuraStudy case study ===== */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0 0 24px}
+.pipe .card{padding:18px 18px 16px;border-top:6px solid var(--c,var(--blue))}
+.pipe .card:nth-child(2){--c:var(--hot)}.pipe .card:nth-child(3){--c:var(--mint)}.pipe .card:nth-child(4){--c:var(--sun)}
+.pipe small{display:block;font:700 .72rem var(--mono);letter-spacing:.08em;color:var(--soft);margin-bottom:4px}
+.pipe b{display:block;font:800 1.15rem 'Bricolage Grotesque';margin-bottom:6px}
+.pipe p{margin:0;color:var(--soft);font-size:.9rem;line-height:1.5}
+@media(max-width:900px){.pipe{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.pipe{grid-template-columns:1fr}}
+.cs.two .card{padding:24px}
+.cs h4{font-size:1.2rem;margin-bottom:8px}
+.cs ul{margin:6px 0 0;padding-left:18px}.cs li{margin:5px 0}
+.cs .tags{margin:10px 0 0}
+.cs .flag{display:inline-block;font:700 .72rem var(--mono);letter-spacing:.06em;background:var(--sun);border:1.5px solid var(--ink);border-radius:99px;padding:2px 10px;margin-bottom:8px}
+@media(min-width:901px){.pipe .card:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:50%;margin-top:-14px;width:18px;text-align:center;font:800 1.3rem 'Bricolage Grotesque';color:var(--ink);z-index:2}}
 </style>
 </head>
 <body>
@@ -446,7 +462,7 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 <div class="tkx" aria-hidden="true"><div class="ticker a" data-rot="-2.2"><div class="tk" id="tk"></div></div><div class="ticker b" data-rot="1.8"><div class="tk rev" id="tk2"></div></div></div>
 
 <section class="layer" style="--lb:#fff7ec"><div class="wrap">
-  <div class="tour" aria-label="Quick tour for judges"><span>⏱ 60-SECOND TOUR</span><a href="#about">Intro</a><a href="#edu">Education</a><a href="#edu">Skills</a><a href="#journey">Achievements</a><a href="#projects">Portfolio</a><a href="#ambition">Future ambition</a><a href="#ai">Responsible AI</a><a href="#ai">AI tools</a><a href="#ai">Reflection</a></div>
+  <div class="tour" aria-label="Quick tour for judges"><span>⏱ 60-SECOND TOUR</span><a href="#about">Intro</a><a href="#edu">Education</a><a href="#edu">Skills</a><a href="#journey">Achievements</a><a href="#projects">Portfolio</a><a href="#casestudy">Case study</a><a href="#ambition">Future ambition</a><a href="#ai">Responsible AI</a><a href="#ai">AI tools</a><a href="#ai">Reflection</a></div>
   <div class="nums" data-fx="rise">
     <div class="card num"><b data-n="15">0</b><span>Spaces on Hugging Face, plus a published ML model</span></div>
     <div class="card num"><b data-n="4">0</b><span>competition finals reached, from state to global</span></div>
@@ -474,9 +490,9 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
   <h2>About me</h2>
   <div class="about" data-fx="door">
     <div>
-      <p class="lead" style="max-width:none">Syuan Teng Zhi Ya, pronounced "Swen" <span class="hand">(yes, like that!)</span>. Tingkatan 4 at SMK Bandar Kuching No. 1. I like making <mark>things other people can actually play with</mark>: a physics simulator you can drag, a game you can lose at, a bridge you can accidentally collapse. I care about explaining things clearly, which is why "teacher who codes" keeps showing up on my list of dream jobs.</p>
+      <p class="lead" style="max-width:none">Syuan Teng Zhi Ya, pronounced "Swen" <span class="hand">(yes, like that!)</span>. Form 4 at SMK Bandar Kuching No. 1. I like making <mark>things other people can actually play with</mark>: a physics simulator you can drag, a game you can lose at, a bridge you can accidentally collapse. I care about explaining things clearly, which is why "teacher who codes" keeps showing up on my list of dream jobs.</p>
       <p style="color:var(--soft)">Offline, I take photos, travel solo when I can, miss three-pointers (shooting only), and sing songs I'm not good at but enjoy <mark>every second</mark> of.</p>
-      <div class="facts"><span>📍 Kuching, Sarawak</span><span>🎒 Tingkatan 4</span><span>🏀 shooting only</span><span>🎤 sings for fun</span></div>
+      <div class="facts"><span>📍 Kuching, Sarawak</span><span>🎒 Form 4</span><span>🏀 shooting only</span><span>🎤 sings for fun</span></div>
     </div>
     <div class="pile" id="pile">
       <figure class="pol p1" data-photos="avatar.jpg,avatar2.jpg,avatar3.jpg"><div class="ph" data-e="🙂" style="--bg:#ffe3a8"><img src="photos/avatar.jpg" alt="Syuan" decoding="async" onerror="this.style.display='none'"></div><figcaption>me</figcaption></figure>
@@ -491,7 +507,7 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
 <section id="edu" class="layer" style="--lb:#e3f7f0"><button class="st3" style="right:30%;top:40px" aria-label="Hidden star" type="button">⭐</button><div class="wrap">
   <div class="two" data-fx="fan">
     <div class="card paper"><h4>Education</h4>
-      <p><b style="color:var(--ink)">SMK Bandar Kuching No. 1</b>, Kuching, Sarawak<br>Tingkatan 4 (current)</p>
+      <p><b style="color:var(--ink)">SMK Bandar Kuching No. 1</b>, Kuching, Sarawak<br>Form 4 (current)</p>
       <p>Outside the classroom I teach myself coding and AI by building real apps, then publishing them for other students to use.</p></div>
     <div class="card" id="skills"><h4>Skills and interests</h4>
       <p style="margin:0">Skills I use</p>
@@ -519,7 +535,7 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
         <div class="bar"><i style="width:76%"></i><span><span>Art</span><span>R² 0.76 · error 4.7 · n=211</span></span></div>
         <div class="bar"><i style="width:67%"></i><span><span>Science</span><span>R² 0.67 · error 7.8 · n=99</span></span></div>
         <div class="bar"><i style="width:63%"></i><span><span>Semi Science</span><span>R² 0.63 · error 7.7 · n=91</span></span></div>
-        <p class="note" style="margin-top:8px"><b>Be careful:</b> each stream has only 91 to 211 students, so treat the result as a suggestion to discuss with teachers and family, never a final decision.</p></div>
+        <p class="note" style="margin-top:8px"><b>Be careful:</b> each stream has only 91 to 211 students, so treat the result as a suggestion to discuss with teachers and family, never a final decision. Merit here is out of 90, because the co-curriculum score (Ko-kurikulum, up to 10 points) is not in my data.</p></div>
     </div>
   </div>
   </div>
@@ -532,6 +548,36 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
   <div class="grid" id="grid" data-fx="spiral"></div>
 </div></section>
 
+<section id="casestudy" class="layer" style="--lb:#e6f4ff"><div class="wrap">
+  <h2>AuraStudy case study</h2>
+  <p class="lead">A Form 3 student picks an SPM stream (Science, Semi Science or Art) using data from our school, then gets a weekly study plan that adjusts to how they feel about each subject. Here is how the whole app works, in one picture: a restaurant.</p>
+  <div class="pipe" data-fx="flow">
+    <div class="card"><small>1 · FRONTEND</small><b>The menu and the counter</b><p>What the student sees and taps. 18 pages in HTML, CSS and JavaScript: sign up, survey, dashboard, stream predictor, timer, reflection, streak, career mapper, dragon shop and Budd.</p></div>
+    <div class="card"><small>2 · API</small><b>The waiter</b><p>Carries each order as a small JSON message, for example the 8 marks sent to /predict. A bad order, like a mark of 150, is rejected with error 422 instead of crashing the app.</p></div>
+    <div class="card"><small>3 · BACKEND AND MODEL</small><b>The kitchen</b><p>Rules, a trained Ridge model saved as one .pkl file, and Firebase for accounts and study records. Four backends, one for each job.</p></div>
+    <div class="card"><small>4 · HUGGING FACE</small><b>The street address</b><p>Five Spaces (one frontend, four backends), each with a public address anyone can open and test.</p></div>
+  </div>
+  <div class="two cs" data-fx="deal">
+    <div class="card"><h4>The problem</h4>
+      <ul><li>Students choose a stream at age 15 with little data-based guidance.</li><li>After choosing, they study without structure.</li><li>Most tools solve only one of these: a one-time test, or a timer with no guidance.</li></ul>
+      <p style="margin:10px 0 0">AuraStudy joins the two: choose with data, then study with a plan that adapts.</p></div>
+    <div class="card"><h4>What the model learned</h4>
+      <p style="margin:0">One Ridge regression formula per stream. Input: 8 Form 3 marks. Output: expected SPM merit. I chose Ridge because subjects overlap (strong in Maths often means strong in Science) and each stream has little data, so a simple formula is more reliable.</p>
+      <div class="tags"><span>Art: 211 students · error 4.65</span><span>Science: 99 · error 7.81</span><span>Semi Science: 91 · error 7.67</span></div>
+      <p style="margin:10px 0 0">Tested with 5-fold cross-validation, so it is scored on students it never learned from. Groq only writes one explanation sentence. It does not choose the stream. Merit is out of 90, because the co-curriculum score (up to 10 points) is not in my data.</p></div>
+    <div class="card"><h4>The weekly study plan</h4>
+      <ul><li>Starting time per subject depends on the mark: under 40 gets 150 minutes, 40 to 64 gets 120, 65 to 79 gets 90, 80 and above gets 60.</li><li>Each week the student rates understanding and focus from 1 to 5. An average of 2 or less adds 30 minutes next week. An average of 4 or more removes 15 (never below 45).</li><li>Budd, the study helper, gives hints and asks you to try instead of giving full answers.</li></ul></div>
+    <div class="card"><h4>Privacy and safety</h4>
+      <ul><li>Firebase Authentication handles passwords. My code never sees them.</li><li>Firestore security rules keep each student's sessions and reflections in their own folder. The leaderboard shows only a display name and a streak.</li><li>Secret keys (Groq, Brevo) live in Hugging Face secrets, never in the page code.</li><li>Real student marks were used only to train the model. They are not published.</li></ul></div>
+    <div class="card"><span class="flag">PLAN, NOT RESULTS YET</span><h4>Business plan</h4>
+      <ul><li><b>Stage 1:</b> a 4-week pilot with Form 4 and 5 students and teachers. Goal: at least 60% finish the full flow.</li><li><b>Stage 2:</b> counsellors at nearby schools, about RM300 to 500 per school per year. Goal: 2 pilot agreements.</li><li><b>Stage 3:</b> families, free basic plus a premium plan of about RM5 to 8 a month.</li><li><b>Rule I keep:</b> students come first, with no intrusive ads and no selling of data.</li></ul>
+      <p style="margin:10px 0 0">Running cost today: RM0, on the free tiers of Colab, Hugging Face, Firebase, Groq and Brevo.</p></div>
+    <div class="card"><h4>What I will improve next</h4>
+      <ul><li>Get more students into the data. Each stream has only 91 to 211.</li><li>Add the co-curriculum score (Ko-kurikulum), so merit is out of 100 and not 90.</li><li>Add a "forgot password" button.</li><li>Run the school pilot and publish the real feedback here.</li></ul>
+      <p style="margin:10px 0 0">The result is an estimate, not a promise. The final decision belongs to the student, the parents and the counsellor.</p></div>
+  </div>
+</div></section>
+
 <section id="journey" class="story jour" aria-label="Journey">
   <div class="pin">
     <div class="floor" aria-hidden="true"><i></i></div>
@@ -539,13 +585,13 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
     <div class="stage"><div class="drum">
       <div class="jc win"><b>2026 · NATIONAL</b><h3>Finalist (Top 6)</h3><p>GirlsCode Challenge</p> <a class="jlink" href="https://www.facebook.com/share/p/1HCubgcgbX/" target="_blank" rel="noopener">Watch the finalist video ↗</a></div>
       <div class="jc win"><b>2026 · NATIONAL</b><h3>Finalist</h3><p>National AI Challenge</p></div>
-      <div class="jc win"><b>2026 · STATE</b><h3>Naib Johan (1st runner-up)</h3><p>State-level GAMI-Code Competition</p> <a class="jlink" href="https://www.facebook.com/share/p/1F2vybTAcD/" target="_blank" rel="noopener">See the post ↗</a></div>
+      <div class="jc win"><b>2026 · STATE</b><h3>1st runner-up</h3><p>State-level GAMI-Code Competition</p> <a class="jlink" href="https://www.facebook.com/share/p/1F2vybTAcD/" target="_blank" rel="noopener">See the post ↗</a></div>
       <div class="jc win"><b>DISTRICT LEVEL</b><h3>5th place</h3><p>Bridge Building Competition, Kuching district</p><a class="jlink" href="https://www.facebook.com/share/p/185QHvCvz6/" target="_blank" rel="noopener">See the post ↗</a></div>
       <div class="jc win"><b>ACHIEVEMENT</b><h3>3rd place</h3><p>Digital Storytelling Animation (2D drawing, secondary school), team of three with Lincoln and Valentin</p><a class="jlink" href="https://www.facebook.com/share/p/1JCU4QRta5/" target="_blank" rel="noopener">See the post ↗</a></div>
       <div class="jc win"><b>2025 · GLOBAL</b><h3>Semifinalist</h3><p>Technovation</p></div>
       <div class="jc "><b>SESSION 2026/2027</b><h3>Director of Club Services</h3><p>Interact Club</p></div>
-      <div class="jc "><b>CURRENT</b><h3>Penolong Setiausaha 2</h3><p>Red Crescent, Unit RCCU 7</p></div>
-      <div class="jc "><b>2026</b><h3>Setiausaha</h3><p>Basketball Club</p></div>
+      <div class="jc "><b>CURRENT</b><h3>Assistant Secretary 2</h3><p>Red Crescent, Unit RCCU 7</p></div>
+      <div class="jc "><b>2026</b><h3>Secretary</h3><p>Basketball Club</p></div>
       </div></div>
     <div class="prog3" aria-hidden="true"><i></i></div>
   </div>
@@ -575,7 +621,7 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
     <p class="why">I want to study Software Engineering at university and become a software engineer who builds AI tools for education.</p>
     <p>Software engineering is the thing I already do for fun. I have built and published 15 apps on Hugging Face, trained a Ridge model that predicts SPM merit for three streams, and reached national and global finals with code. Later, I want to teach and lecture, so more people can go from "I don't understand this" to "I built this."</p>
     <div class="road">
-      <div><b>NOW · 2026 to 2027</b>Tingkatan 4 to 5 at SMK Bandar Kuching No. 1
+      <div><b>NOW · 2026 to 2027</b>Form 4 to 5 at SMK Bandar Kuching No. 1
         <ul><li>Aim for strong SPM results, especially Maths and Science</li><li>Keep improving AuraStudy and compete again (GirlsCode, National AI Challenge, Technovation)</li><li>Go deeper in Python, JavaScript, Git and Docker</li></ul></div>
       <div><b>NEXT · about 2028 to 2029</b>Pre-university
         <ul><li>Choose the route (STPM, matriculation, foundation or diploma) that leads into a software engineering degree</li><li>Keep a public portfolio of working apps</li></ul></div>
@@ -592,9 +638,11 @@ html.lite .bw{text-shadow:1px 1px #1a37c4,2px 2px #1a37c4,3px 3px #17309f,4px 4p
   <p class="lead">How I used AI to build this site and my projects.</p>
   <div class="two" data-fx="slide">
     <div class="card sheet" data-tilt="4,5,1.01"><h4>Responsible AI statement</h4><p>AI should serve people, not the other way around. I use it as a partner that carries out my ideas, never as a replacement for my own thinking. What to build, who it is for, and how it should work are my decisions. Claude helps me write code faster, find bugs and polish my writing. I read and test what it produces before I use it, and I say openly where I used it.</p>
-      <ul class="rai"><li><b>Privacy.</b> The predictor does not store your scores, and this site shares no address, IC, phone number or family details.</li><li><b>Honest limits.</b> My model learned from only 91 to 211 students per stream, so I show its accuracy and call the result a suggestion.</li><li><b>Checking.</b> I test every piece of code and every number AI gives me before I publish it.</li><li><b>Credit.</b> Claude is named as my only AI tool. The ideas, choices and decisions are mine.</li></ul></div>
+      <ul class="rai"><li><b>Privacy.</b> The predictor does not store your scores, and this site shares no address, IC, phone number or family details.</li><li><b>Honest limits.</b> My model learned from only 91 to 211 students per stream, so I show its accuracy and call the result a suggestion.</li><li><b>Checking.</b> I test every piece of code and every number AI gives me before I publish it.</li><li><b>Credit.</b> I name every AI tool I used: Claude, Gemini, and Groq inside AuraStudy. The ideas, choices and decisions are mine.</li></ul></div>
     <div class="card sheet" data-tilt="4,5,1.01"><h4>AI tools I used</h4>
-      <ul><li>Claude (by Anthropic): the only AI tool I used. It helped me write and debug the code for my apps and this website, and polish my English.</li></ul>
+      <ul><li><b>Claude (Anthropic):</b> helped me write and debug the code for my apps and this website, and polish my English.</li>
+      <li><b>Gemini (Google):</b> helped me write and fix the Python code in Google Colab where I trained the stream model.</li>
+      <li><b>Groq (inside AuraStudy):</b> this one is part of the product, not my helper. It writes the one-sentence explanation, the career path text, the study feedback and the Budd tutor replies, and it checks quotes before they are shown. It never chooses the stream.</li></ul>
       <h4 style="margin-top:16px">Reflection</h4><p class="tldr"><b>In one line:</b> AI is my builder's tool. The idea, the decisions and the checking stay with me.</p><p>Claude helped me a lot, but the most important part was still my own idea. AI cannot replace the human brain. We should use AI well instead of being controlled by it: think of the idea ourselves, then let AI help us carry it out, rather than letting it think and do everything for us.</p>
       <p>For this website, I decided what to show about myself, which projects mattered, and how it should feel. Claude turned those decisions into working code much faster than I could alone. When something looked wrong, I had to explain what I wanted, test it, and ask again. That taught me that a clear idea matters more than a clever tool.</p>
       <p>Every time Claude changed something, I checked it carefully. Before I publish anything to Hugging Face or GitHub, I check it again, and if I find a mistake I ask Claude to fix it. Slowly I learned to read code, and now I fix some small errors myself without asking for help.</p></div>
@@ -658,7 +706,7 @@ const CATS={all:'All',ai:'AI for education',sim:'Simulators',game:'Games'};
 const COL={ai:'#2547f0',sim:'#12c9a0',game:'#ff7eb6'};
 
 /* ticker */
-const items=['Top 6 Finalist, GirlsCode Challenge 2026 (National)','Naib Johan, State GAMI-Code 2026','Finalist, National AI Challenge 2026','Semifinalist, Technovation Global 2025','15 apps live on Hugging Face','Basketball: shooting only'];
+const items=['Top 6 Finalist, GirlsCode Challenge 2026 (National)','1st Runner-up, State GAMI-Code 2026','Finalist, National AI Challenge 2026','Semifinalist, Technovation Global 2025','15 apps live on Hugging Face','Basketball: shooting only'];
 const tkHTML=a=>[...a,...a].map(x=>`<span>${x}</span><span>◆</span>`).join('');
 $('#tk').innerHTML=tkHTML(items);$('#tk2').innerHTML=tkHTML(items.slice().reverse());
 
@@ -720,7 +768,7 @@ cube.innerHTML=CF.map((f,i)=>`<div class="cface" style="transform:${CT[i]} trans
 const API='https://syuanteng315-spm-predictor.hf.space/predict';
 /* wake the model API early so judges do not wait on the first click */
 setTimeout(()=>{try{fetch(API.replace(/predict$/,''),{mode:'no-cors'}).catch(()=>{})}catch(e){}},1500);
-const SUBJ=[['F3_BM','Bahasa Melayu'],['F3_BI','English'],['F3_Math','Maths'],['F3_Science','Science'],['F3_Sejarah','Sejarah'],['F3_Geo','Geografi'],['F3_RBT','RBT'],['F3_PSV','PSV']];
+const SUBJ=[['F3_BM','Malay (BM)'],['F3_BI','English'],['F3_Math','Maths'],['F3_Science','Science'],['F3_Sejarah','History'],['F3_Geo','Geography'],['F3_RBT','Design and Tech (RBT)'],['F3_PSV','Visual Arts (PSV)']];
 const EX={F3_BM:70,F3_BI:65,F3_Math:85,F3_Science:80,F3_Sejarah:60,F3_Geo:62,F3_RBT:75,F3_PSV:55};
 $('#sc').innerHTML=SUBJ.map(([k,l])=>`<label for="${k}">${l}</label><input id="${k}" type="number" inputmode="numeric" min="0" max="100" placeholder="0-100">`).join('');
 function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
@@ -774,7 +822,7 @@ $('#filters').addEventListener('click',e=>{const b=e.target.closest('.f');if(!b)
 render('all');
 
 /* ---- command palette ---- */
-const ENT=[['🎉 Party mode','@party'],['🎲 Surprise me (random project)','@surprise'],['⭐ How many stars left?','@hint'],['About','#about'],['How AuraStudy works','#story'],['Education','#edu'],['Skills and interests','#edu'],['Try the Stream Predictor','#demo'],['Projects','#projects'],['Journey and achievements','#journey'],['Future ambition','#ambition'],['AI and reflection','#ai'],['Find me online','#find'],...P.map(p=>[p.n,HF+p.slug,1])];
+const ENT=[['🎉 Party mode','@party'],['🎲 Surprise me (random project)','@surprise'],['⭐ How many stars left?','@hint'],['About','#about'],['How AuraStudy works','#story'],['Education','#edu'],['Skills and interests','#edu'],['Try the Stream Predictor','#demo'],['Projects','#projects'],['AuraStudy case study','#casestudy'],['Journey and achievements','#journey'],['Future ambition','#ambition'],['AI and reflection','#ai'],['Find me online','#find'],...P.map(p=>[p.n,HF+p.slug,1])];
 let sel=0,list=ENT;
 function showPal(){$('#pal').classList.add('on');$('#q').value='';fill('');$('#q').focus()}
 function hidePal(){$('#pal').classList.remove('on')}
@@ -839,7 +887,11 @@ addEventListener('keydown',e=>{
   spiral:(k,i)=>{const d=i%2?1:-1;return{o:'50% 50%',t:[d*(1-k)*140,(1-k)*110,0],r:[0,1,.35,d*(1-k)*78]}},
   drop:(k)=>({o:'50% 0%',t:[0,-(1-k)*240,-(1-k)*320],r:[1,0,0,-(1-k)*72]}),
   slide:(k,i)=>{const d=i%2?-1:1;return{o:'50% 50%',t:[d*(1-k)*340,0,-(1-k)*160],r:[0,0,1,d*(1-k)*-14]}},
-  swing:(k,i)=>({o:'50% 0%',t:[0,0,0],r:[1,0,0,-(1-k)*88]})
+  swing:(k,i)=>({o:'50% 0%',t:[0,0,0],r:[1,0,0,-(1-k)*88]}),
+  /* flow: each step of the pipeline travels in from the left like an order, later steps from further away */
+  flow:(k,i)=>({o:'0% 50%',t:[-(1-k)*(240+i*150),0,-(1-k)*120],r:[0,1,0,-(1-k)*75]}),
+  /* deal: every card starts stacked at the middle of the grid, then flips and flies to its own place */
+  deal:(k,i,n,ox,oy)=>{const u=1-k,d=i%2?1:-1;return{o:'50% 50%',t:[-ox*u,-oy*u,-u*220],r:[0,1,.15,d*u*140],s:1-u*.3}}
  };
  const fxs=$$('[data-fx]');
  const ticks=$$('.ticker'),heroWrap=$('.hero .wrap'),hd=$$('.hero [data-d]'),field=$('#field'),orbs=$$('.orbs i');
@@ -920,7 +972,7 @@ addEventListener('keydown',e=>{
     const cr=c.getBoundingClientRect();
     if(cr.bottom<-200||cr.top>vh+500)return;
     const f=FX[c.dataset.fx],kids=c.children,n=kids.length;
-    for(let i=0;i<n;i++){const e=kids[i];if(e.offsetParent===null)continue;ops.push({e,i,n,f,top:cr.top+e.offsetTop})}
+    for(let i=0;i<n;i++){const e=kids[i];if(e.offsetParent===null)continue;ops.push({e,i,n,f,top:cr.top+e.offsetTop,ox:e.offsetLeft+e.offsetWidth/2-c.offsetWidth/2,oy:e.offsetTop+e.offsetHeight/2-c.offsetHeight/2})}
    });
    const sr=story.getBoundingClientRect(),r2=jr.getBoundingClientRect();
    const lm=layers.map((l,i)=>({top:(l.__nat??l.offsetTop)-y,h:l.__h||l.offsetHeight,nt:nxs[i]?((nxs[i].__nat??nxs[i].offsetTop)-y):null}));
@@ -942,7 +994,7 @@ addEventListener('keydown',e=>{
     const kt=easeOut(clamp((vh*.96-o.top-(i%3)*30)/(vh*.5),0,1));
     const pk=e.__k===undefined?kt:e.__k;
     const k=window.snapFx?kt:pk+(kt-pk)*.12;e.__k=Math.abs(kt-k)<.001?kt:k;if(e.__k!==kt)need=1;
-    const q=o.f(easeOut(k),i,o.n);
+    const q=o.f(easeOut(k),i,o.n,o.ox,o.oy);
     sw(e,'transformOrigin',q.o);
     sw(e,'translate',`${q.t[0].toFixed(1)}px ${q.t[1].toFixed(1)}px ${q.t[2].toFixed(1)}px`);
     sw(e,'rotate',`${q.r[0]} ${q.r[1]} ${q.r[2]} ${q.r[3].toFixed(2)}deg`);
