@@ -110,7 +110,7 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:700px){.nums{grid-template-columns:1fr}}
 
 /* ============ STORY: tunnel fly-through ============ */
-.story{height:430vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
+.story{height:620vh;padding:0;background:radial-gradient(ellipse at 50% 60%,#1a2a78,#071230 70%);color:#fff;border-block:1.5px solid var(--ink);position:relative}
 .pin{position:sticky;top:0;height:100vh;overflow:hidden}
 .pin h2{position:absolute;top:8vh;left:0;right:0;text-align:center;font-size:clamp(1.5rem,3.4vw,2.5rem);z-index:3;padding:0 20px;margin:0}
 .stage{position:absolute;inset:0;perspective:1100px}
@@ -204,7 +204,7 @@ h2.in .w{transform:none;opacity:1}
 @media(max-width:800px){.pj.star{grid-template-columns:1fr}.stk{min-height:220px}}
 
 /* ============ JOURNEY: rolodex drum ============ */
-.jour{height:580vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
+.jour{height:1000vh;background:radial-gradient(ellipse at 50% 100%,#6a2c91aa,transparent 60%),#150d36}
 .drum{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(-440px)}
 .jc{position:absolute;left:50%;top:52%;width:min(640px,86vw);padding:30px 36px;border-radius:20px;border:2px solid #8fa8ff;background:linear-gradient(145deg,#1b2a78,#0f1850);box-shadow:0 0 60px #2547f055;backface-visibility:hidden;will-change:transform,opacity;pointer-events:none;transition:border-color .3s var(--easeFast)}
 .jc.win{border-color:var(--sun);box-shadow:0 0 70px #ffc23355}
@@ -846,6 +846,8 @@ addEventListener('keydown',e=>{
  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width*2-1;my=(e.clientY-r.top)/r.height*2-1});
  hero.addEventListener('pointerleave',()=>{mx=0;my=0});
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ // each card holds still for a while, then glides to the next (so a quick flick cannot skip a card)
+ const hold=t=>{const i=Math.floor(t),x=t-i,u=clamp((x-.28)/.44,0,1);return i+u*u*(3-2*u)};
  // each layer arrives in its own surprising way (v = 1 → hidden, 0 → arrived)
  const LV=[
   v=>({tr:`translateX(${-v*110}vw) rotate(${-v*4}deg)`,og:'0% 100%'}),
@@ -904,7 +906,7 @@ addEventListener('keydown',e=>{
    });
    // tunnel fly-through
    if(sr.bottom>-vh&&sr.top<vh*1.2){
-    const prog=clamp(-sr.top/(sr.height-vh),0,1),t=prog*(slides.length-1);
+    const prog=clamp(-sr.top/(sr.height-vh),0,1),t=hold(prog*(slides.length-1));
     slides.forEach((s,i)=>{
      const d=i-t;let x,yy,z,ry,o;
      if(d>=0){z=-d*560;x=d*150;yy=-d*34;ry=-d*30;o=d<=1?1:clamp(2-d,0,1)}
@@ -922,7 +924,7 @@ addEventListener('keydown',e=>{
    }
    // rolodex drum
    if(r2.bottom>-vh&&r2.top<vh*1.2){
-    const prog=clamp(-r2.top/(r2.height-vh),0,1),t=prog*(jcs.length-1);
+    const prog=clamp(-r2.top/(r2.height-vh),0,1),t=hold(prog*(jcs.length-1));
     jcs.forEach((c,i)=>{const d=i-t;c.style.transform=`translate(-50%,-50%) rotateX(${(-d*34).toFixed(2)}deg) translateZ(440px)`;c.style.opacity=clamp(1.5-Math.abs(d)*1.1,0,1).toFixed(3)});
     jbar.style.width=(prog*100).toFixed(2)+'%';jfloor.style.backgroundPosition=`0 ${(-prog*900).toFixed(1)}px`;
     if(prog>.03&&!window.cfd){window.cfd=1;confetti()}
