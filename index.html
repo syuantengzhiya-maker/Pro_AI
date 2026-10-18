@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Syuan — I build things you can break and understand</title>
 <meta name="description" content="Syuan (Swen) — student builder from Kuching. AI for education, physics simulators, games.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Syuan — I build things you can break and understand">
+<meta property="og:description" content="Student builder from Kuching. AI for education, physics simulators and games. Try a real ML model live.">
+<meta property="og:image" content="https://pro-ai-33j2.onrender.com/photos/avatar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fff7ec">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -343,23 +350,42 @@ html,body{overflow-x:clip}
 .st3{z-index:80!important;opacity:.75!important;font-size:2rem!important;filter:drop-shadow(2px 3px 0 #0d1b3d55)!important}
 /* v15: transformed 3D slides/layers must not inflate the page height (caused fragment links to land at the wrong place) */
 .layer,.story,.jour,.hero{overflow:clip!important}
-/* v15: transformed 3D slides/layers must not inflate the page height (caused fragment links to land at the wrong place) */
-.layer,.story,.jour,.hero{overflow:clip!important}
+
+/* ===== v16: judge-friendly additions (all 3D effects untouched) ===== */
+.skip{position:absolute;left:-999px;top:8px;z-index:500;background:var(--sun);padding:8px 14px;border:2px solid var(--ink);border-radius:10px;font-weight:700;text-decoration:none}
+.skip:focus{left:12px}
+.tour{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 28px}
+.tour span{font:700 .85rem var(--mono);letter-spacing:.06em;margin-right:4px}
+.tour a{padding:6px 14px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;font-weight:600;font-size:.88rem;text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .2s}
+.tour a:hover{background:var(--sun);transform:translate(-2px,-2px)}
+@media(max-width:720px){.tour{flex-wrap:nowrap;overflow-x:auto;padding:0 4px 10px}.tour a,.tour span{white-space:nowrap;flex:none}}
+.mc{margin-top:16px;padding-top:14px;border-top:1.5px dashed var(--ink)}
+.mc .bar i{background:var(--mint);opacity:.4}
+.tldr{background:#fff3c4;border:1.5px dashed var(--ink);border-radius:10px;padding:8px 12px;margin:0 0 10px}
+.rai{margin:12px 0 0;padding-left:18px}.rai li{margin:6px 0}
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
+.road div{background:#ffffff1f;border:1.5px solid #ffffff66;border-radius:14px;padding:14px 16px;font-size:.95rem;line-height:1.5}
+.road b{display:block;font:700 .78rem var(--mono);letter-spacing:.1em;color:var(--sun);margin-bottom:4px}
+.road ul{margin:6px 0 0;padding-left:18px}.road li{margin:3px 0}
+.why{font-weight:600;color:#fff}
+.moments{grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr))}
+@media(max-width:430px){.mcard.fb iframe{zoom:.62}}
 </style>
 </head>
 <body>
+<a class="skip" href="#about">Skip to content</a>
 <div id="bar"></div>
 <div id="bgs" aria-hidden="true"><i class="bs r1"></i><i class="bs r2"></i><i class="bs sq1"></i><i class="bs sq2"></i><i class="bs tri"></i><i class="bs dot1"></i><i class="bs dot2"></i></div>
 <nav><div class="wrap">
   <a class="brand" href="#top">Syuan<i>.</i></a>
-  <div class="links"><a href="#about">About</a><a href="#demo">Try it</a><a href="#projects">Projects</a><a href="#find">Find me</a><a href="#journey">Journey</a><a href="#activities">Activities</a><a href="#ai">AI &amp; reflection</a>
+  <div class="links"><a href="#about">About</a><a href="#demo">Try it</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#ambition">Future</a><a href="#ai">AI</a>
   <button class="kbd" id="fxt" aria-pressed="true" title="Toggle sparkles" type="button">✨</button><button class="kbd" id="open" aria-label="Open search">Search  /</button></div>
 </div></nav>
 
 <header class="hero" id="top">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="gt" data-d="-60" aria-hidden="true">SYUAN</div>
-  <div class="fc fc1" data-d="40"><b>Random Forest</b>trained stream model</div>
+  <div class="fc fc1" data-d="40"><b>Ridge model</b>cross-validated on real students</div>
   <div class="fc fc2" data-d="75"><b>3D</b>optics ray tracing</div>
   <div class="fc fc3" data-d="25"><b>Top 6</b>GirlsCode 2026</div>
   <div class="cubeWrap" data-d="30" aria-hidden="true"><span class="cnote">drag me! click a face!</span><div class="cube" id="cube"></div><div class="cshadow"></div></div>
@@ -375,6 +401,7 @@ html,body{overflow-x:clip}
 <div class="tkx" aria-hidden="true"><div class="ticker a" data-rot="-2.2"><div class="tk" id="tk"></div></div><div class="ticker b" data-rot="1.8"><div class="tk rev" id="tk2"></div></div></div>
 
 <section class="layer" style="--lb:#fff7ec"><div class="wrap">
+  <div class="tour" aria-label="Quick tour for judges"><span>⏱ 60-SECOND TOUR</span><a href="#about">Intro</a><a href="#edu">Education</a><a href="#edu">Skills</a><a href="#journey">Achievements</a><a href="#projects">Portfolio</a><a href="#ambition">Future ambition</a><a href="#ai">Responsible AI</a><a href="#ai">AI tools</a><a href="#ai">Reflection</a></div>
   <div class="nums" data-fx="rise">
     <div class="card num"><b data-n="15">0</b><span>Spaces on Hugging Face, plus a published ML model</span></div>
     <div class="card num"><b data-n="4">0</b><span>competition finals reached, from state to global</span></div>
@@ -388,7 +415,7 @@ html,body{overflow-x:clip}
     <h2>How AuraStudy carries a student through</h2>
     <div class="stage">
       <i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i><i class="tn"></i>
-      <div class="sl3" style="--ac:#8fa8ff"><span class="ic">🧭</span><h3>Predict</h3><p>Enter your Form 3 scores. A trained model suggests Science, Semi Science or Art, and shows how sure it is.</p><div class="tags"><span>Random Forest</span><span>Gradient Boosting</span></div></div>
+      <div class="sl3" style="--ac:#8fa8ff"><span class="ic">🧭</span><h3>Predict</h3><p>Enter your Form 3 scores. A trained model suggests Science, Semi Science or Art, and shows how sure it is.</p><div class="tags"><span>Ridge regression</span><span>cross-validated</span></div></div>
       <div class="sl3" style="--ac:#ffc233"><span class="ic">⏱️</span><h3>Focus</h3><p>Start a timed study session and keep track of your scores and focus minutes.</p><div class="tags"><span>study timer</span><span>study scores</span></div></div>
       <div class="sl3" style="--ac:#ff7eb6"><span class="ic">✍️</span><h3>Reflect</h3><p>After each session, write a short reflection to see what worked and what to change.</p><div class="tags"><span>reflection journal</span></div></div>
       <div class="sl3" style="--ac:#12c9a0"><span class="ic">🐉</span><h3>Grow</h3><p>Your dragon companion and the dragon shop reward steady studying. Career Mapper then shows where it could lead.</p><div class="tags"><span>dragon shop</span><span>Career Mapper</span></div></div>
@@ -441,7 +468,13 @@ html,body{overflow-x:clip}
     <div class="holo" aria-live="polite">
       <div class="tag3">// RESULT</div>
       <div id="out"><p class="note" style="font-size:.95rem">Your result will appear here.</p></div>
-      <p class="note" style="margin-top:14px">Nothing you type is stored on this website. The scores go only to the model API. The first request can take up to 20 seconds while the API wakes up. <a href="https://syuanteng315-aurastudy.hf.space/stream-predictor.html" target="_blank" rel="noopener">Open the full AuraStudy version</a>.</p>
+      <p class="note" style="margin-top:14px">Nothing you type is stored on this website. The scores go only to the model API. The first request can take up to 20 seconds while the API wakes up. <a href="https://huggingface.co/spaces/syuanteng315/AuraStudy" target="_blank" rel="noopener">Open the full AuraStudy version</a>.</p>
+      <div class="mc"><div class="tag3">// MODEL REPORT CARD</div>
+        <p class="note" style="margin:0 0 6px">Ridge regression predicts the expected SPM merit score for each stream. I compared Ridge, Random Forest and KNN with cross-validation, and Ridge was best in all three streams. Error is the average miss in merit scores (MAE). Higher R² is better.</p>
+        <div class="bar"><i style="width:76%"></i><span><span>Art</span><span>R² 0.76 · error 4.7 · n=211</span></span></div>
+        <div class="bar"><i style="width:67%"></i><span><span>Science</span><span>R² 0.67 · error 7.8 · n=99</span></span></div>
+        <div class="bar"><i style="width:63%"></i><span><span>Semi Science</span><span>R² 0.63 · error 7.7 · n=91</span></span></div>
+        <p class="note" style="margin-top:8px"><b>Be careful:</b> each stream has only 91 to 211 students, so treat the result as a suggestion to discuss with teachers and family, never a final decision.</p></div>
     </div>
   </div>
   </div>
@@ -477,23 +510,35 @@ html,body{overflow-x:clip}
   <h2>Activities &amp; service</h2>
   <p class="lead">Volunteering, leadership and events outside the classroom.</p>
   <div class="moments">
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-<div class="mcard fb"><iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02NmfRkKYWnbJpJkcvcuXtaKqZWivKSVynPdD7Ffq4i6W1udEkcoyVvouSN8NBBSEAl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02ohAjz4raXVwdkKAU9v5LpYAyTJC9AJeemWT6WtQgvgtJkPmnRch4cuMVCpwiw5ePl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid09yFguokmAULRfCpjDyHtXPJkDXCBJ8ffARda48x9bjpZB8Aoe8QHrv6CAupPdh4gl&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSMKBK1Official%2Fposts%2Fpfbid02y5udyjqKPnRH7biVi39fimFsVd8htTQyFRW8s7YjFoJdGfk19E9EuuGdgqBhiNDql&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Zzfa7eREEHhPNKKR4CM6MnETuNaLS3TCu2XZCcbeX7EozDNH4T4upfyuxn93ieoKl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0fqmDivsSpPn23GzDvJwsn8sWenfUsyhrXhKoGpJQate3u6oQZuCTwsCwNNSMs6e5l%26id%3D61556610100517&show_text=true&width=500" width="500" height="728" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02ZT6xT63JLdqgqqdqStRuJnvuGXKza8M2Q1K9byTzZAAbEBX3c2ma1JgnW24eFXqVl%26id%3D61556610100517&show_text=true&width=500" width="500" height="640" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid033sxUbjPX2MdkZoTPC6MQJuBD53Zs24aVJb8p4gKoqYXYVFQRV6gpy1zKe1ZgeXuZl%26id%3D61556610100517&show_text=true&width=500" width="500" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+<div class="mcard fb"><iframe loading="lazy" title="Facebook post about my activities" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DdZNX2bjkgYEkvfA1MY1cHV2uqKiHgPk8q1zP1en26GAviUKhpySrR4jb9gCMNTRl%26id%3D61556610100517&show_text=true&width=500" width="500" height="633" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
 </div>
 </div></section>
 
-<section class="layer" style="--lb:#e8edff"><div class="wrap" data-fx="drop">
+<section id="ambition" class="layer" style="--lb:#e8edff"><div class="wrap" data-fx="drop">
+  <h2>Future ambition</h2>
   <div class="card big" data-tilt="10,14,1.02">
     <div class="orbs" aria-hidden="true"><i data-d="30">💻</i><i data-d="55">🎓</i><i data-d="20">🎤</i><i data-d="70">✨</i></div>
     <h3><span class="bw" style="--i:0">Software engineer.</span> <span class="bw" style="--i:1">Teacher.</span> <span class="bw" style="--i:2">Lecturer.</span> <span class="bw" style="--i:3">Influencer.</span></h3>
-    <p>Whichever title fits, the goal is the same: spread knowledge about coding and AI to people around the world, and help more people go from "I don't understand this" to "I built this."</p>
+    <p class="why">I want to study Software Engineering at university and become a software engineer who builds AI tools for education.</p>
+    <p>Software engineering is the thing I already do for fun. I have built and published 15 apps on Hugging Face, trained a Ridge model that predicts SPM merit for three streams, and reached national and global finals with code. Later, I want to teach and lecture, so more people can go from "I don't understand this" to "I built this."</p>
+    <div class="road">
+      <div><b>NOW · 2026 to 2027</b>Tingkatan 4 to 5 at SMK Bandar Kuching No. 1
+        <ul><li>Aim for strong SPM results, especially Maths and Science</li><li>Keep improving AuraStudy and compete again (GirlsCode, National AI Challenge, Technovation)</li><li>Go deeper in Python, JavaScript, Git and Docker</li></ul></div>
+      <div><b>NEXT · about 2028 to 2029</b>Pre-university
+        <ul><li>Choose the route (STPM, matriculation, foundation or diploma) that leads into a software engineering degree</li><li>Keep a public portfolio of working apps</li></ul></div>
+      <div><b>DEGREE · about 2029 to 2033</b>Bachelor of Software Engineering
+        <ul><li>Learn data structures, databases, software testing and machine learning properly</li><li>Join hackathons and do internships</li><li>Focus on AI for education</li></ul></div>
+      <div><b>CAREER · after graduating</b>Software engineer in education technology
+        <ul><li>Build tools that Malaysian students really use</li><li>Teach and lecture on coding and AI, in class and online</li></ul></div>
+    </div>
   </div>
 </div></section>
 
@@ -501,12 +546,16 @@ html,body{overflow-x:clip}
   <h2>AI and reflection</h2>
   <p class="lead">How I used AI to build this site and my projects.</p>
   <div class="two" data-fx="slide">
-    <div class="card sheet" data-tilt="4,5,1.01"><h4>Responsible AI statement</h4><p>AI should serve people, not the other way around. I use it as a partner that carries out my ideas, never as a replacement for my own thinking. What to build, who it is for, and how it should work are my decisions. Claude helps me write code faster, find bugs and polish my writing. I read and test what it produces before I use it, and I say openly where I used it.</p></div>
+    <div class="card sheet" data-tilt="4,5,1.01"><h4>Responsible AI statement</h4><p>AI should serve people, not the other way around. I use it as a partner that carries out my ideas, never as a replacement for my own thinking. What to build, who it is for, and how it should work are my decisions. Claude helps me write code faster, find bugs and polish my writing. I read and test what it produces before I use it, and I say openly where I used it.</p>
+      <ul class="rai"><li><b>Privacy.</b> The predictor does not store your scores, and this site shares no address, IC, phone number or family details.</li><li><b>Honest limits.</b> My model learned from only 91 to 211 students per stream, so I show its accuracy and call the result a suggestion.</li><li><b>Checking.</b> I test every piece of code and every number AI gives me before I publish it.</li><li><b>Credit.</b> Claude is named as my only AI tool. The ideas, choices and decisions are mine.</li></ul></div>
     <div class="card sheet" data-tilt="4,5,1.01"><h4>AI tools I used</h4>
       <ul><li>Claude (by Anthropic): the only AI tool I used. It helped me write and debug the code for my apps and this website, and polish my English.</li></ul>
-      <h4 style="margin-top:16px">Reflection</h4><p>Claude helped me a lot, but the most important part was still my own idea. AI cannot replace the human brain. We should use AI well instead of being controlled by it: think of the idea ourselves, then let AI help us carry it out, rather than letting it think and do everything for us.</p>
+      <h4 style="margin-top:16px">Reflection</h4><p class="tldr"><b>In one line:</b> AI is my builder's tool. The idea, the decisions and the checking stay with me.</p><p>Claude helped me a lot, but the most important part was still my own idea. AI cannot replace the human brain. We should use AI well instead of being controlled by it: think of the idea ourselves, then let AI help us carry it out, rather than letting it think and do everything for us.</p>
       <p>For this website, I decided what to show about myself, which projects mattered, and how it should feel. Claude turned those decisions into working code much faster than I could alone. When something looked wrong, I had to explain what I wanted, test it, and ask again. That taught me that a clear idea matters more than a clever tool.</p>
       <p>Every time Claude changed something, I checked it carefully. Before I publish anything to Hugging Face or GitHub, I check it again, and if I find a mistake I ask Claude to fix it. Slowly I learned to read code, and now I fix some small errors myself without asking for help.</p></div>
+    <div class="card sheet" data-tilt="4,5,1.01" style="grid-column:1/-1"><h4>When AI got it wrong</h4>
+      <p>My app felt laggy, so I asked AI to make it run smoothly. It "fixed" the lag by deleting every 3D effect. The app was fast, but it was flat and no longer looked like mine. I did not accept that. I listed the effects that must stay (the hero depth, the tunnel, the draggable cube, the journey drum) and asked it to fix the real causes of the lag instead.</p>
+      <ul class="rai"><li><b>What we changed.</b> The wave background now draws only while the hero is on screen, and the scroll code reads the page layout in one batch before it writes any changes.</li><li><b>What I learned.</b> "Make it faster" is too vague. AI will happily remove the part you love. Now I tell AI what must stay, and I test the result before I accept it.</li></ul></div>
   </div>
 </div></section>
 
@@ -548,7 +597,7 @@ const easeSpring=p=>{const c4=(2*Math.PI)/3;return p<=0.5?-(Math.pow(2,20*p-10)*
 /* EDIT HERE: your projects. cat: ai | sim | game */
 const P=[
  {n:'AuraStudy',cat:'ai',ic:'🎓',star:1,slug:'AuraStudy',d:'A study app for Malaysian students with a dragon companion. Predict your stream from Form 3 scores, jump to career ideas, track study scores, run a focus timer, write reflections and spend rewards in the dragon shop. Includes login and a personal dashboard.',t:['stream predictor','career link','study timer','reflection','dragon shop','dashboard']},
- {n:'SPM Predictor API',cat:'ai',ic:'📈',slug:'spm-predictor',d:'The trained models behind the Stream Predictor. Send 8 Form 3 scores and it returns the best stream (Science, Semi Science or Art), the chance of coping with Science, and expected SPM merit for each stream.',t:['Random Forest','Gradient Boosting','Docker','API']},
+ {n:'SPM Predictor API',cat:'ai',ic:'📈',slug:'spm-predictor',d:'The trained models behind the Stream Predictor. Send 8 Form 3 scores and it returns the best stream (Science, Semi Science or Art), the chance of coping with Science, and expected SPM merit for each stream.',t:['Ridge regression','cross-validated','Docker','API']},
  {n:'AI Career Mapper',cat:'ai',ic:'🧭',slug:'AI-career-mapper',d:'Generates personalised Malaysian career pathways for students. Runs on ZeroGPU.',t:['Gradio','ZeroGPU','agents']},
  {n:'Study Planner v2',cat:'ai',ic:'🗓️',slug:'StudyPlanner.v2',d:'Generates a personalised study schedule.',t:['Python','Docker']},
  {n:'StudyPlant',cat:'ai',ic:'🌱',slug:'StudyPlant',d:'Grow study plants and earn collectible stamps as you study.',t:['gamified','single-file app']},
@@ -623,6 +672,8 @@ cube.innerHTML=CF.map((f,i)=>`<div class="cface" style="transform:${CT[i]} trans
 
 /* ---- real stream predictor ---- */
 const API='https://syuanteng315-spm-predictor.hf.space/predict';
+/* wake the model API early so judges do not wait on the first click */
+setTimeout(()=>{try{fetch(API.replace(/predict$/,''),{mode:'no-cors'}).catch(()=>{})}catch(e){}},1500);
 const SUBJ=[['F3_BM','Bahasa Melayu'],['F3_BI','English'],['F3_Math','Maths'],['F3_Science','Science'],['F3_Sejarah','Sejarah'],['F3_Geo','Geografi'],['F3_RBT','RBT'],['F3_PSV','PSV']];
 const EX={F3_BM:70,F3_BI:65,F3_Math:85,F3_Science:80,F3_Sejarah:60,F3_Geo:62,F3_RBT:75,F3_PSV:55};
 $('#sc').innerHTML=SUBJ.map(([k,l])=>`<label for="${k}">${l}</label><input id="${k}" type="number" inputmode="numeric" min="0" max="100" placeholder="0-100">`).join('');
@@ -634,7 +685,7 @@ $('#go').onclick=async()=>{
  SUBJ.forEach(([k])=>{const v=$('#'+k).value.trim(),n=Number(v);if(v===''||isNaN(n)||n<0||n>100){bad=true;$('#'+k).style.outline='3px solid var(--hot)'}else{$('#'+k).style.outline='';body[k]=n}});
  out.replaceChildren();
  if(bad){out.append(el('p','note','Please fill in all 8 scores with numbers from 0 to 100.'));return}
- btn.disabled=true;btn.textContent='Analysing…';out.append(el('p','note','Asking the model…'));
+ btn.disabled=true;btn.textContent='Analysing…';out.append(el('p','note','Asking the model… the first request can take about 20 seconds.'));
  const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),25000);
  try{
   const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:ctl.signal});
@@ -676,7 +727,7 @@ $('#filters').addEventListener('click',e=>{const b=e.target.closest('.f');if(!b)
 render('all');
 
 /* ---- command palette ---- */
-const ENT=[['🎉 Party mode','@party'],['🎲 Surprise me (random project)','@surprise'],['⭐ How many stars left?','@hint'],['About','#about'],['How AuraStudy works','#story'],['Education','#edu'],['Skills and interests','#edu'],['Try the Stream Predictor','#demo'],['Projects','#projects'],['Journey and achievements','#journey'],['AI and reflection','#ai'],['Find me online','#find'],...P.map(p=>[p.n,HF+p.slug,1])];
+const ENT=[['🎉 Party mode','@party'],['🎲 Surprise me (random project)','@surprise'],['⭐ How many stars left?','@hint'],['About','#about'],['How AuraStudy works','#story'],['Education','#edu'],['Skills and interests','#edu'],['Try the Stream Predictor','#demo'],['Projects','#projects'],['Journey and achievements','#journey'],['Future ambition','#ambition'],['AI and reflection','#ai'],['Find me online','#find'],...P.map(p=>[p.n,HF+p.slug,1])];
 let sel=0,list=ENT;
 function showPal(){$('#pal').classList.add('on');$('#q').value='';fill('');$('#q').focus()}
 function hidePal(){$('#pal').classList.remove('on')}
@@ -728,7 +779,7 @@ addEventListener('keydown',e=>{
   zoom:(k)=>({o:'50% 50%',t:[0,0,-(1-k)*1100],r:[1,0,0,(1-k)*28],s:1-(1-k)*.25}),
   spiral:(k,i)=>{const d=i%2?1:-1;return{o:'50% 50%',t:[d*(1-k)*140,(1-k)*110,0],r:[0,1,.35,d*(1-k)*78]}},
   drop:(k)=>({o:'50% 0%',t:[0,-(1-k)*240,-(1-k)*320],r:[1,0,0,-(1-k)*72]}),
-  slide:(k,i)=>{const d=i?-1:1;return{o:'50% 50%',t:[d*(1-k)*340,0,-(1-k)*160],r:[0,0,1,d*(1-k)*-14]}},
+  slide:(k,i)=>{const d=i%2?-1:1;return{o:'50% 50%',t:[d*(1-k)*340,0,-(1-k)*160],r:[0,0,1,d*(1-k)*-14]}},
   swing:(k,i)=>({o:'50% 0%',t:[0,0,0],r:[1,0,0,-(1-k)*88]})
  };
  const fxs=$$('[data-fx]');
@@ -983,8 +1034,8 @@ addEventListener('keydown',e=>{
 })();
 </script>
 <script>
-/* nav links: scroll to each section's real page position so the stacked layers arrive properly */
-document.querySelectorAll('nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+/* nav links, the 60-second tour and the skip link: scroll to each section's real page position so the stacked layers arrive properly */
+document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(a=>a.addEventListener('click',e=>{
   const t=document.querySelector(a.getAttribute('href'));if(!t)return;
   e.preventDefault();
   // offsetTop of a sticky layer includes its sticky shift, so read the natural position with stickiness off
