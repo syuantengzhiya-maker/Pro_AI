@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Syuan Teng Zhi Ya — I build things you can break and understand">
 <meta property="og:description" content="Student developer from Kuching building AI tools for education, interactive physics simulators and games. Explore real projects and try a live ML demo.">
-<meta property="og:image" content="https://pro-ai-33j2.onrender.com/photos/avatar.jpg">
+<meta property="og:image" content="https://pro-ai-33j2.onrender.com/photos/avatar1.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#fff7ec">
 <meta name="color-scheme" content="light">
@@ -719,10 +719,10 @@ footer .wrap{gap:18px}
       <div class="facts"><span>📍 Kuching, Sarawak</span><span>🎒 Form 4</span><span>🏀 shooting only</span><span>🎤 sings for fun</span></div>
     </div>
     <div class="pile" id="pile">
-      <figure class="pol p1" data-photos="avatar.jpg,avatar2.jpg,avatar3.jpg"><div class="ph" data-e="🙂" style="--bg:#ffe3a8"><img src="photos/avatar.jpg" alt="Syuan" decoding="async" onerror="this.style.display='none'"></div><figcaption>me</figcaption></figure>
-      <figure class="pol p2" data-photos="photo2.jpg,photo4.jpg,photo5.jpg"><div class="ph" data-e="📷" style="--bg:#ffc9de"><img src="photos/photo2.jpg" alt="Photography" decoding="async" onerror="this.style.display='none'"></div><figcaption>photography</figcaption></figure>
-      <figure class="pol p3" data-photos="photo3.jpg,photo6.jpg,photo7.jpg"><div class="ph" data-e="🎤" style="--bg:#bff1e4"><img src="photos/photo3.jpg" alt="Presenting" decoding="async" onerror="this.style.display='none'"></div><figcaption>presenting</figcaption></figure>
-      <figure class="pol p4" data-photos="travel1.jpg,travel2.jpg,travel3.jpg"><div class="ph" data-e="🧳" style="--bg:#d6ccff"><img src="photos/travel1.jpg" alt="Travel" decoding="async" onerror="this.style.display='none'"></div><figcaption>solo trip</figcaption></figure>
+      <figure class="pol p1" data-photos="avatar1.jpg,avatar2.jpg,avatar3.jpg,avatar4.jpg,avatar5.jpg"><div class="ph" data-e="🙂" style="--bg:#ffe3a8"><img src="photos/avatar1.jpg" alt="Syuan" decoding="async" onerror="this.style.display='none'"></div><figcaption>me</figcaption></figure>
+      <figure class="pol p2" data-photos="photography1.jpg,photography2.jpg,photography3.jpg,photography4.jpg,photography5.jpg"><div class="ph" data-e="📷" style="--bg:#ffc9de"><img src="photos/photography1.jpg" alt="Photography" decoding="async" onerror="this.style.display='none'"></div><figcaption>photography</figcaption></figure>
+      <figure class="pol p3" data-photos="presenting1.jpg,presenting2.jpg,presenting3.jpg,presenting4.jpg,presenting5.jpg"><div class="ph" data-e="🎤" style="--bg:#bff1e4"><img src="photos/presenting1.jpg" alt="Presenting" decoding="async" onerror="this.style.display='none'"></div><figcaption>presenting</figcaption></figure>
+      <figure class="pol p4" data-photos="travel1.jpg,travel2.jpg,travel3.jpg,travel4.jpg,travel5.jpg"><div class="ph" data-e="🧳" style="--bg:#d6ccff"><img src="photos/travel1.jpg" alt="Travel" decoding="async" onerror="this.style.display='none'"></div><figcaption>solo trip</figcaption></figure>
       <div class="tip">👆 tap a photo to flip to the next one 📸</div>
     </div>
   </div>
@@ -957,8 +957,10 @@ let ri=0,ci=0,del=0;const ty=$('#typed');
  if(del&&ci===0){del=0;ri=(ri+1)%roles.length}
  ci+=del?-1:1;setTimeout(loop,del?35:70)})();
 
-/* ---- hero wave field (PERF: bigger cells + 20fps + pauses when hero is off screen / tab hidden / Smooth mode) ---- */
-const cv=$('#field'),cx=cv.getContext('2d');const CELL=innerWidth<900?16:12;let W,H,img,mouse=null,rip=[],heroVis=true;
+/* ---- hero wave field (same interference pattern, higher resolution cells) ---- */
+const cv=$('#field'),cx=cv.getContext('2d');
+/* Smaller CELL = sharper waves. Pattern math is unchanged from the original. */
+const CELL=innerWidth<900?5:3;let W,H,img,mouse=null,rip=[],heroVis=true;
 function size(){const r=cv.parentElement.getBoundingClientRect();W=Math.ceil(r.width/CELL);H=Math.ceil(r.height/CELL);cv.width=W;cv.height=H;img=cx.createImageData(W,H)}
 size();let rsT=0;addEventListener('resize',()=>{clearTimeout(rsT);rsT=setTimeout(size,150)});
 const hero=$('.hero');
@@ -1355,8 +1357,8 @@ addEventListener('keydown',e=>{
  let zt=10;
  // photo pool (PERF: no more probing 17 files + decoding all of them at load; only the names in data-photos, after the page is idle)
  const FOLDER='photos/';
- const PHOTOS=['avatar.jpg','photo2.jpg','photo3.jpg','travel1.jpg'];
- const CAP={'avatar.jpg':'me','photo2.jpg':'photography','photo3.jpg':'presenting','travel1.jpg':'solo trip'};
+ const PHOTOS=['avatar1.jpg','photography1.jpg','presenting1.jpg','travel1.jpg'];
+ const CAP={'avatar1.jpg':'me','photography1.jpg':'photography','presenting1.jpg':'presenting','travel1.jpg':'solo trip'};
  let pool=[];
  const CACHE={};
  const GROUPS=[...document.querySelectorAll('[data-photos]')].flatMap(p=>p.dataset.photos.split(',').map(x=>x.trim()));
