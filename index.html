@@ -673,6 +673,70 @@ footer .wrap{gap:18px}
 @media(prefers-reduced-motion:reduce){
  [data-fx]>*,[data-fx].fx-in>*{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* ============================================================
+   FIX PATCH (layout + performance) — placed last so it overrides everything above
+   ============================================================ */
+
+/* 1. ROOT CAUSE of "messy cards": the odd/even entrance offsets (door / spiral / slide)
+      had the same specificity as the "settled" rule and came later, so cards stayed
+      shifted by ±28~40px forever. This rule is more specific and puts them back. */
+[data-fx].fx-in>*:nth-child(n){transform:translate3d(0,0,0)}
+
+/* 2. Stacked-paper / notebook effects no longer depend on translateZ + z-index:-1
+      (they used to cover the card's own background/content once a transform was applied). */
+.card.paper::before,.card.paper::after,.card.sheet::after{display:none}
+.card.paper{box-shadow:7px 7px 0 #ffd1e3,7px 7px 0 1.5px #101a3840,14px 14px 0 #ffe9b8,14px 14px 0 1.5px #101a3840}
+.card.sheet{box-shadow:9px 10px 0 #fff,9px 10px 0 1.5px #101a3840,0 14px 30px #101a380c}
+.two{align-items:stretch;row-gap:30px}
+.num b,.num span{transform:none}
+
+/* 3. Class-name collisions: .flip (photo click vs. "Find me" flip sign) and .spin (word click vs. orbit) */
+.pol.flip{display:block;height:auto;perspective:none}
+.bw.spin{position:static;width:auto;height:auto}
+
+/* 4. Hero floating mini-cards covered the headline on mid-width screens */
+@media(max-width:1180px){.fc{display:none}}
+
+/* 5. PERF: fewer GPU layers, no live blur over the animated canvas, no per-frame text re-raster */
+.card,[data-fx]>*{will-change:auto}
+.layer{will-change:auto!important;transform-style:flat!important;backface-visibility:visible!important}
+.layer>.wrap{scale:none!important}
+nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fff8ef}
+.fc{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fffffff5}
+
+/* 6. BOMBASTIC CARD ENTRANCES (restored): big 3D flips/flies, one-shot CSS transitions, zero scroll-JS cost.
+      The parent [data-fx] already has perspective:1400px, so these rotate in real 3D. */
+[data-fx]:not(.fx-done)>*{transition-property:opacity,transform!important;transition-duration:.6s,1s!important;transition-timing-function:ease,cubic-bezier(.2,.9,.3,1.15)!important}
+[data-fx]:not(.fx-done)>*:nth-child(1){transition-delay:0ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(2){transition-delay:90ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(3){transition-delay:180ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(4){transition-delay:270ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(5){transition-delay:340ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(6){transition-delay:410ms!important}
+[data-fx]:not(.fx-done)>*:nth-child(n+7){transition-delay:480ms!important}
+[data-fx=rise]>*{transform-origin:50% 100%;transform:translate3d(0,160px,-220px) rotateX(80deg)}
+[data-fx=door]>*:nth-child(odd){transform-origin:0% 50%;transform:translate3d(0,0,-220px) rotateY(-85deg)}
+[data-fx=door]>*:nth-child(even){transform-origin:100% 50%;transform:translate3d(0,0,-220px) rotateY(85deg)}
+[data-fx=fan]>*{transform-origin:50% 140%}
+[data-fx=fan]>*:nth-child(odd){transform:translate3d(0,140px,-200px) rotateZ(-17deg)}
+[data-fx=fan]>*:nth-child(even){transform:translate3d(0,140px,-200px) rotateZ(17deg)}
+[data-fx=zoom]>*{transform-origin:50% 50%;transform:translate3d(0,0,-1100px) rotateX(28deg) scale(.75)}
+[data-fx=spiral]>*{transform-origin:50% 50%}
+[data-fx=spiral]>*:nth-child(odd){transform:translate3d(-140px,110px,0) rotateY(-78deg)}
+[data-fx=spiral]>*:nth-child(even){transform:translate3d(140px,110px,0) rotateY(78deg)}
+[data-fx=drop]>*{transform-origin:50% 0%;transform:translate3d(0,-240px,-320px) rotateX(-72deg)}
+[data-fx=slide]>*:nth-child(odd){transform-origin:50% 50%;transform:translate3d(-340px,0,-160px) rotateZ(14deg)}
+[data-fx=slide]>*:nth-child(even){transform-origin:50% 50%;transform:translate3d(340px,0,-160px) rotateZ(-14deg)}
+[data-fx=swing]>*{transform-origin:50% 0%;transform:rotateX(-88deg)}
+[data-fx=flow]>*{transform-origin:0% 50%}
+[data-fx=flow]>*:nth-child(1){transform:translate3d(-240px,0,-120px) rotateY(-75deg)}
+[data-fx=flow]>*:nth-child(2){transform:translate3d(-390px,0,-120px) rotateY(-75deg)}
+[data-fx=flow]>*:nth-child(3){transform:translate3d(-540px,0,-120px) rotateY(-75deg)}
+[data-fx=flow]>*:nth-child(4){transform:translate3d(-690px,0,-120px) rotateY(-75deg)}
+[data-fx=deal]>*{transform-origin:50% 50%}
+[data-fx=deal]>*:nth-child(odd){transform:translate3d(0,0,-220px) rotateY(140deg) scale(.7)}
+[data-fx=deal]>*:nth-child(even){transform:translate3d(0,0,-220px) rotateY(-140deg) scale(.7)}
 </style>
 </head>
 <body>
@@ -992,8 +1056,8 @@ let ri=0,ci=0,del=0;const ty=$('#typed');
 
 /* ---- hero wave field (same interference pattern, higher resolution cells) ---- */
 const cv=$('#field'),cx=cv.getContext('2d');
-/* Smaller CELL = sharper waves. Pattern math is unchanged from the original. */
-const CELL=innerWidth<900?5:3;let W,H,img,mouse=null,rip=[],heroVis=true;
+/* PERF FIX: bigger cells = ~4x fewer pixels to compute per frame. The canvas is stretched by CSS, so the waves stay smooth. */
+const CELL=innerWidth<900?8:6;let W,H,img,mouse=null,rip=[],heroVis=true;
 function size(){const r=cv.parentElement.getBoundingClientRect();W=Math.ceil(r.width/CELL);H=Math.ceil(r.height/CELL);cv.width=W;cv.height=H;img=cx.createImageData(W,H)}
 size();let rsT=0;addEventListener('resize',()=>{clearTimeout(rsT);rsT=setTimeout(size,150)});
 const hero=$('.hero');
@@ -1007,7 +1071,7 @@ hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button,.cubeWrap'
 let lastF=0;
 function frame(now){
  // Always draw when hero is on screen — LITE only slows fps, never kills the wave
- const gap=window.LITE?80:50;
+ const gap=window.LITE?100:66;
  if(heroVis&&!document.hidden&&!RM&&now-lastF>=gap){lastF=now;
  if(!img||!W||!H)size();
  const t=now/1000,k=.42*(CELL/8),d=img.data;
@@ -1181,7 +1245,7 @@ addEventListener('keydown',e=>{
    if(e.isIntersecting){
     e.target.classList.add('fx-in');
     fxIO.unobserve(e.target);
-    setTimeout(()=>e.target.classList.add('fx-done'),900);
+    setTimeout(()=>e.target.classList.add('fx-done'),1800);
    }
   }),{threshold:0.01,rootMargin:'30% 0px 15% 0px'});
   fxs.forEach(el=>fxIO.observe(el));
@@ -1196,7 +1260,7 @@ addEventListener('keydown',e=>{
      // already on screen or just above the fold while scrolling up/down
      if(r.top<innerHeight*0.92&&r.bottom>innerHeight*0.05){
       el.classList.add('fx-in');
-      setTimeout(()=>el.classList.add('fx-done'),900);
+      setTimeout(()=>el.classList.add('fx-done'),1800);
      }
     });
    });
@@ -1380,7 +1444,8 @@ addEventListener('keydown',e=>{
 /* ===== playground: sparkles, star hunt, party, shortcuts ===== */
 (function(){
  const fine=matchMedia('(pointer:fine)').matches;
- let trail=fine&&!RM&&(navigator.hardwareConcurrency||8)>4,lastT=0,party=false,pt=null;
+ /* PERF: sparkle trail starts OFF (it created a DOM element every 60ms). The ✨ button turns it on. */
+ let trail=false,lastT=0,party=false,pt=null;
  const COLS=['#2547f0','#ff5a36','#ffc233','#12c9a0','#ff7eb6','#7b5cff'];
  function dot(x,y,spread,size,dur){
   const d=document.createElement('i');d.className='pt';const s=size||(6+Math.random()*7);
@@ -1474,15 +1539,15 @@ document.querySelectorAll('nav a[href^="#"],.tour a[href^="#"],a.skip').forEach(
 }));
 </script>
 <script>
-/* PERF: Facebook posts are NOT loaded until you tap them (9 live iframes were the biggest cause of lag).
-   The 3D "Ambition" text also pauses when off screen. */
+/* Facebook posts: kept exactly as before (auto-load, one at a time).
+   Only change: they now start loading ~2500px BEFORE they reach the screen (was 700px) and a bit faster,
+   so by the time you scroll to "Activities & service" they are already there. */
 (function(){
  const f=[...document.querySelectorAll('iframe[data-src]')];
- /* auto-load, but gently: a post starts loading only when it is within ~700px of the screen, and posts load one at a time */
  const q=[];let busy=0;
- function pump(){if(busy||!q.length)return;busy=1;const i=q.shift();if(i.dataset.src){i.src=i.dataset.src;i.removeAttribute('data-src')}setTimeout(()=>{busy=0;pump()},450)}
+ function pump(){if(busy||!q.length)return;busy=1;const i=q.shift();if(i.dataset.src){i.src=i.dataset.src;i.removeAttribute('data-src')}setTimeout(()=>{busy=0;pump()},250)}
  if('IntersectionObserver' in window){
-  const fio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fio.unobserve(e.target);q.push(e.target);pump()}}),{rootMargin:'700px 0px'});
+  const fio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fio.unobserve(e.target);q.push(e.target);pump()}}),{rootMargin:'2500px 0px'});
   f.forEach(i=>fio.observe(i));
  }else{f.forEach(i=>{q.push(i);pump()})}
  if('IntersectionObserver' in window){
